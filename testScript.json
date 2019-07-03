@@ -1,0 +1,2788 @@
+{
+    "programIndicators": [
+        {
+            "id": "FmYwAlyJXC9",
+            "name": "Morbidity-Fever of unknown origin(>= 15 y)",
+            "shortName": "Morbidity-Fever of u-own origin-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "oJWEM6Vz75L.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "FmYwAlyJXC9",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.oJWEM6Vz75L} == 'IPD_OS_005_23'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "JQoLBqRcO05",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "NIFGf1CRpK8",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "MmsSMAsm2Iq",
+            "name": "Morbidity-Fever of unknown origin(5 - 14 y)",
+            "shortName": "Morbidity-Fever of u-own origin-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "oJWEM6Vz75L.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "MmsSMAsm2Iq",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.oJWEM6Vz75L} == 'IPD_OS_005_23'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "JeO1ukrho3W",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "nBhz4MWoAnm",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "N1uCCvkZCN5",
+            "name": "Morbidity-Fever of unknown origin(< 5 y)",
+            "shortName": "Morbidity-Fever of u-own origin-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "oJWEM6Vz75L.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "N1uCCvkZCN5",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.oJWEM6Vz75L} == 'IPD_OS_005_23'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "QxtqCUcpZ7o",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "EVZTU7qPO2w",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "joQHoM4F7Ss",
+            "name": "Morbidity-Severe malaria - Severe anaemia(>= 15 y)",
+            "shortName": "Morbidity-Severe mal-re anaemia-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "X01UYWNMOQk.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "joQHoM4F7Ss",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.X01UYWNMOQk} == 'IPD_OS_005_64'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "Lnyi4pLQddK",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "pZDX6AADyNH",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "eEZA2MSFUj0",
+            "name": "Morbidity-Severe malaria - Severe anaemia(5 - 14 y)",
+            "shortName": "Morbidity-Severe mal-re anaemia-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "X01UYWNMOQk.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "eEZA2MSFUj0",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.X01UYWNMOQk} == 'IPD_OS_005_64'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "oAWS05fXE9P",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "WqDsBkvxZjW",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "o1sXxHjPy1A",
+            "name": "Morbidity-Severe malaria - Severe anaemia(< 5 y)",
+            "shortName": "Morbidity-Severe mal-re anaemia-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "X01UYWNMOQk.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "o1sXxHjPy1A",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.X01UYWNMOQk} == 'IPD_OS_005_64'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "a8gsv6eU7eI",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "hdYVv1NIU4Y",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "nYhScv7FD1j",
+            "name": "Nursing Care-Pressure sore risk assessment(>= 15 y)",
+            "shortName": "Nursing Care-Pressure s-assessment-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "JMt0oLw6vxP.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "nYhScv7FD1j",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.JMt0oLw6vxP} == ''",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "emhq2UZGE0E",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "pcxuW0qwTNS",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "s3ij5AEYa1H",
+            "name": "Nursing Care-Pressure sore risk assessment(5 - 14 y)",
+            "shortName": "Nursing Care-Pressure s-assessment-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "JMt0oLw6vxP.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "s3ij5AEYa1H",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.JMt0oLw6vxP} == ''",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "WeV6CpHGWat",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "jRMRPGcUDCL",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "ljJn7ATPJg3",
+            "name": "Nursing Care-Pressure sore risk assessment(< 5 y)",
+            "shortName": "Nursing Care-Pressure s-assessment-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "JMt0oLw6vxP.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "ljJn7ATPJg3",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.JMt0oLw6vxP} == ''",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "eGzdyAyBz19",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "lCFr5wFqzBR",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "GkYJSGzSRS8",
+            "name": "Mortality-Deaths due to HIV-AIDS(>= 15 y)",
+            "shortName": "Mortality-Deaths due-o HIV-AIDS-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "ecjLSzOsO6Y.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "GkYJSGzSRS8",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.ecjLSzOsO6Y} == 'IPD_OS_008_11'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "iknHCdn4i0W",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "GAxqrP4QGSY",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "LWbUzBELHMO",
+            "name": "Mortality-Deaths due to HIV-AIDS(5 - 14 y)",
+            "shortName": "Mortality-Deaths due-o HIV-AIDS-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "ecjLSzOsO6Y.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "LWbUzBELHMO",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.ecjLSzOsO6Y} == 'IPD_OS_008_11'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "hDwhmXJdzbl",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "BEOpu20D2FL",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "fQvZs22y8Ik",
+            "name": "Mortality-Deaths due to HIV-AIDS(< 5 y)",
+            "shortName": "Mortality-Deaths due-o HIV-AIDS-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "ecjLSzOsO6Y.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "fQvZs22y8Ik",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.ecjLSzOsO6Y} == 'IPD_OS_008_11'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "ejhzWZodkG4",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "kroduHemPyd",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "JlkaHdKW1lH",
+            "name": "Mortality-Deaths due to Jaundice with fever(>= 15 y)",
+            "shortName": "Mortality-Deaths due-with fever-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "iVUevNbNwAP.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "JlkaHdKW1lH",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.iVUevNbNwAP} == 'IPD_OS_008_14'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "A3sRjOlyVjG",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "hAwJmEdKZ5p",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "BgudWG3J8Gl",
+            "name": "Mortality-Deaths due to Jaundice with fever(5 - 14 y)",
+            "shortName": "Mortality-Deaths due-with fever-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "iVUevNbNwAP.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "BgudWG3J8Gl",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.iVUevNbNwAP} == 'IPD_OS_008_14'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "QDApQafa7er",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "fGRPdxfZDH8",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "gQHw1kYJphy",
+            "name": "Mortality-Deaths due to Jaundice with fever(< 5 y)",
+            "shortName": "Mortality-Deaths due-with fever-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "iVUevNbNwAP.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "gQHw1kYJphy",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.iVUevNbNwAP} == 'IPD_OS_008_14'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "rBbzLbv56qu",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "poaOrCmUSyV",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "tX3A1klKF2R",
+            "name": "Morbidity-Acute bloody diarrhoea(>= 15 y)",
+            "shortName": "Morbidity-Acute bloo- diarrhoea-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "nyF9ahBuIt3.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "tX3A1klKF2R",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.nyF9ahBuIt3} == 'IPD_OS_008_3'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "Si3AeapjrGz",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "kddWgd8oKnO",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "u4mqRDRY55N",
+            "name": "Morbidity-Acute bloody diarrhoea(5 - 14 y)",
+            "shortName": "Morbidity-Acute bloo- diarrhoea-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "nyF9ahBuIt3.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "u4mqRDRY55N",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.nyF9ahBuIt3} == 'IPD_OS_008_3'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "gXWW4Yn8ZWF",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "MI5ZNROVp6P",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "DWoTo9kubs0",
+            "name": "Morbidity-Acute bloody diarrhoea(< 5 y)",
+            "shortName": "Morbidity-Acute bloo- diarrhoea-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "nyF9ahBuIt3.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "DWoTo9kubs0",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.nyF9ahBuIt3} == 'IPD_OS_008_3'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "eE6yy4x2BGd",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "QDDoPuEBTPz",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "fdOzJ50yDkA",
+            "name": "Mortality-Death due to Chronic Liver Disease(>= 15 y)",
+            "shortName": "Mortality-Death due -er Disease-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "TovwcI62hGO.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "fdOzJ50yDkA",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.TovwcI62hGO} == 'IPD_OS_008_39'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "n5SyGgx0JQl",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "YZeqjGcC9JL",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "XbTIeUMgO1v",
+            "name": "Mortality-Death due to Chronic Liver Disease(5 - 14 y)",
+            "shortName": "Mortality-Death due -er Disease-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "TovwcI62hGO.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "XbTIeUMgO1v",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.TovwcI62hGO} == 'IPD_OS_008_39'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "OKXQW1T6UTz",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "zJlQrCJr0NE",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "JlK1geiZZY5",
+            "name": "Mortality-Death due to Chronic Liver Disease(< 5 y)",
+            "shortName": "Mortality-Death due -er Disease-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "TovwcI62hGO.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "JlK1geiZZY5",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.TovwcI62hGO} == 'IPD_OS_008_39'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "I3bB1Qa94yQ",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "ygL1EwpGQ5a",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "L3IFzzofvb5",
+            "name": "Morbidity-Intentional physical injury(>= 15 y)",
+            "shortName": "Morbidity-Intentiona-cal injury-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "pkDnmRE5L1O.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "L3IFzzofvb5",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.pkDnmRE5L1O} == 'IPD_OS_005_53'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "hnxM3YMHps8",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Qpg3zSLc08j",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "NxaBxtNowdz",
+            "name": "Morbidity-Intentional physical injury(5 - 14 y)",
+            "shortName": "Morbidity-Intentiona-cal injury-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "pkDnmRE5L1O.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "NxaBxtNowdz",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.pkDnmRE5L1O} == 'IPD_OS_005_53'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "gqltU49trxy",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "StzDJ0zUOvx",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "BBuVzPoN45E",
+            "name": "Morbidity-Intentional physical injury(< 5 y)",
+            "shortName": "Morbidity-Intentiona-cal injury-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "pkDnmRE5L1O.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "BBuVzPoN45E",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.pkDnmRE5L1O} == 'IPD_OS_005_53'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "w55TBXY1H8E",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "SL2464FLgtw",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "grmGswd0yyF",
+            "name": "Morbidity-Obstetrical condition - Hosp Ward(>= 15 y)",
+            "shortName": "Morbidity-Obstetrica- Hosp Ward-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "hcrz6o1pEan.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "grmGswd0yyF",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.hcrz6o1pEan} == 'IPD_OS_005_47'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "TOObnZWSxcC",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "W4gPQ5r6JCo",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "ZR7WTABUgoY",
+            "name": "Morbidity-Obstetrical condition - Hosp Ward(5 - 14 y)",
+            "shortName": "Morbidity-Obstetrica- Hosp Ward-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "hcrz6o1pEan.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "ZR7WTABUgoY",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.hcrz6o1pEan} == 'IPD_OS_005_47'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "oXqlIyEVMnk",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "T9FtMxffsjA",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "mRvCZ7LPvui",
+            "name": "Morbidity-Obstetrical condition - Hosp Ward(< 5 y)",
+            "shortName": "Morbidity-Obstetrica- Hosp Ward-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "hcrz6o1pEan.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "mRvCZ7LPvui",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.hcrz6o1pEan} == 'IPD_OS_005_47'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "qdckTnxt1BL",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Z7xvmSprcWl",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "tGerLgSQgn1",
+            "name": "Morbidity-Hospital Acquired Infection - Catheter Associated Urinary Tract Infection - CA-UTI(>= 15 y)",
+            "shortName": "Morbidity-Hospital A-n - CA-UTI-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "rkHcVv8ilyb.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "tGerLgSQgn1",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.rkHcVv8ilyb} == 'IPD_OS_005_28'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "fQj45B6UyF5",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "DwQif0IjMNW",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "ZLMjXo9WAvn",
+            "name": "Morbidity-Hospital Acquired Infection - Catheter Associated Urinary Tract Infection - CA-UTI(5 - 14 y)",
+            "shortName": "Morbidity-Hospital A-n - CA-UTI-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "rkHcVv8ilyb.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "ZLMjXo9WAvn",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.rkHcVv8ilyb} == 'IPD_OS_005_28'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "t09MFzZCZ2A",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "U2REHIZ4csv",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "uqUHTDcJvu9",
+            "name": "Morbidity-Hospital Acquired Infection - Catheter Associated Urinary Tract Infection - CA-UTI(< 5 y)",
+            "shortName": "Morbidity-Hospital A-n - CA-UTI-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "rkHcVv8ilyb.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "uqUHTDcJvu9",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.rkHcVv8ilyb} == 'IPD_OS_005_28'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "zLauIXBB9Em",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "alzuJXHE2OE",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "j7xTjPj4dHN",
+            "name": "Morbidity-Schistosomiasis (>= 15 y)",
+            "shortName": "Morbidity-Schistosom-osomiasis -(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "dUiFzmbsGnP.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "j7xTjPj4dHN",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.dUiFzmbsGnP} == 'IPD_OS_005_58'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "j4leIOPcOti",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "exyFOHe6hvm",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "KEg72Ptbwo0",
+            "name": "Morbidity-Schistosomiasis (5 - 14 y)",
+            "shortName": "Morbidity-Schistosom-osomiasis -(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "dUiFzmbsGnP.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "KEg72Ptbwo0",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.dUiFzmbsGnP} == 'IPD_OS_005_58'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "j6Qy0u33VIJ",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "r1laboOOf0M",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "p8z0ADXf8y5",
+            "name": "Morbidity-Schistosomiasis (< 5 y)",
+            "shortName": "Morbidity-Schistosom-osomiasis -(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "dUiFzmbsGnP.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "p8z0ADXf8y5",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.dUiFzmbsGnP} == 'IPD_OS_005_58'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "lASkvP8OIxQ",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "qzp22koDsY6",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "xkGyWZJsmpx",
+            "name": "Morbidity-Lower Respiratory Tract Infection(>= 15 y)",
+            "shortName": "Morbidity-Lower Resp- Infection-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "icjTqNJD5VR.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "xkGyWZJsmpx",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.icjTqNJD5VR} == 'IPD_OS_005_39'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "IS5mkzeFNJg",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "AkbRGIbHg6r",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "yoeQIwdWIZm",
+            "name": "Morbidity-Lower Respiratory Tract Infection(5 - 14 y)",
+            "shortName": "Morbidity-Lower Resp- Infection-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "icjTqNJD5VR.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "yoeQIwdWIZm",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.icjTqNJD5VR} == 'IPD_OS_005_39'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "sZgYHaC0Xfm",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Luzf3Eh6kkK",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "M1sQW1dXyri",
+            "name": "Morbidity-Lower Respiratory Tract Infection(< 5 y)",
+            "shortName": "Morbidity-Lower Resp- Infection-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "icjTqNJD5VR.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "M1sQW1dXyri",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.icjTqNJD5VR} == 'IPD_OS_005_39'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "aJUNfKGGw1f",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Lpy1kR2MX4t",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "zaiv9NZo8sR",
+            "name": "Morbidity-Visceral Leishmaniasis(>= 15 y)",
+            "shortName": "Morbidity-Visceral L-shmaniasis-(default)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "ecfGr0ZIhRR.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "zaiv9NZo8sR",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.ecfGr0ZIhRR} == 'IPD_OS_005_81'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "i3d74mChjdy",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "SLt25X9axCX",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "a9U7wlDffML",
+            "name": "Morbidity-Visceral Leishmaniasis(5 - 14 y)",
+            "shortName": "Morbidity-Visceral L-shmaniasis-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "ecfGr0ZIhRR.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "a9U7wlDffML",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.ecfGr0ZIhRR} == 'IPD_OS_005_81'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "zd6qCO3JLhn",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "qqjZeTcqKwc",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "TFQQsOZHFg7",
+            "name": "Morbidity-Visceral Leishmaniasis(< 5 y)",
+            "shortName": "Morbidity-Visceral L-shmaniasis-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "ecfGr0ZIhRR.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "TFQQsOZHFg7",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.ecfGr0ZIhRR} == 'IPD_OS_005_81'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "ErDByAlVV6Z",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "EtRGl20PT2U",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "GKtKaoe82f8",
+            "name": "Admissions/Exits-Discharged - IPD(>= 15 y)",
+            "shortName": "Admissions/Exits-Discharged-rged - IPD-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "MFvBoAQPEu4.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "GKtKaoe82f8",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.MFvBoAQPEu4} == 'IPD_OS_004_1'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "E0FQAaz7usD",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "N7m5f9mOO0P",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "sS3Bqpm9mln",
+            "name": "Admissions/Exits-Discharged - IPD(5 - 14 y)",
+            "shortName": "Admissions/Exits-Discharged-rged - IPD-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "MFvBoAQPEu4.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "sS3Bqpm9mln",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.MFvBoAQPEu4} == 'IPD_OS_004_1'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "xrddeHLkESs",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "DWIHOs66m7O",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "LNDcRExmlQ5",
+            "name": "Admissions/Exits-Discharged - IPD(< 5 y)",
+            "shortName": "Admissions/Exits-Discharged-rged - IPD-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "MFvBoAQPEu4.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "LNDcRExmlQ5",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.MFvBoAQPEu4} == 'IPD_OS_004_1'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "s9vUS95dIEb",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "cROVvQ0WoUv",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "YWomppNHOcV",
+            "name": "Morbidity-Severe malaria - Other severe(>= 15 y)",
+            "shortName": "Morbidity-Severe mal-her severe-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "YeXPsHVsOKG.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "YWomppNHOcV",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.YeXPsHVsOKG} == 'IPD_OS_005_63'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "eqxmUYKfcmW",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "tArpCCG82Do",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "igcNV7TF5RD",
+            "name": "Morbidity-Severe malaria - Other severe(5 - 14 y)",
+            "shortName": "Morbidity-Severe mal-her severe-(default)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "YeXPsHVsOKG.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "igcNV7TF5RD",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.YeXPsHVsOKG} == 'IPD_OS_005_63'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "aaC1fIy0yXF",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "ezQJiGz2Unn",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "Fg43jmp4H7q",
+            "name": "Morbidity-Severe malaria - Other severe(< 5 y)",
+            "shortName": "Morbidity-Severe mal-her severe-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "YeXPsHVsOKG.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "Fg43jmp4H7q",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.YeXPsHVsOKG} == 'IPD_OS_005_63'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "yHvGGI8RuFa",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "bTyq5JP6RUj",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "cpsW8Ofv3Ze",
+            "name": "Morbidity-Arterial Hypertension(>= 15 y)",
+            "shortName": "Morbidity-Arterial H-pertension-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "GuKHgHJt7R6.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "cpsW8Ofv3Ze",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.GuKHgHJt7R6} == 'IPD_OS_005_8'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "qk3PVHiee0J",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "lESve9UbhCE",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "T4lsogjFazH",
+            "name": "Morbidity-Arterial Hypertension(5 - 14 y)",
+            "shortName": "Morbidity-Arterial H-pertension-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "GuKHgHJt7R6.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "T4lsogjFazH",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.GuKHgHJt7R6} == 'IPD_OS_005_8'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "iwo2zHHISYB",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "jq0i5238m4F",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "rbvqPx0jKB9",
+            "name": "Morbidity-Arterial Hypertension(< 5 y)",
+            "shortName": "Morbidity-Arterial H-pertension-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "GuKHgHJt7R6.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "rbvqPx0jKB9",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.GuKHgHJt7R6} == 'IPD_OS_005_8'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "Ycsv7w1gB46",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "XjhUWoHdIoe",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "riKAjCurdqa",
+            "name": "Morbidity-Tumor/cancer(>= 15 y)",
+            "shortName": "Morbidity-Tumor/canc-mor/cancer-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "yHaZdEOH8Zg.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "riKAjCurdqa",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.yHaZdEOH8Zg} == 'IPD_OS_005_75'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "n0Vr8mjg6B6",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "DrZSG28H2Xy",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "NRYXsCHl1zK",
+            "name": "Morbidity-Tumor/cancer(5 - 14 y)",
+            "shortName": "Morbidity-Tumor/canc-mor/cancer-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "yHaZdEOH8Zg.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "NRYXsCHl1zK",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.yHaZdEOH8Zg} == 'IPD_OS_005_75'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "T5zE7dgEuGb",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "kqga1xxnhCJ",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "PlBIoeIeRbN",
+            "name": "Morbidity-Tumor/cancer(< 5 y)",
+            "shortName": "Morbidity-Tumor/canc-mor/cancer-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "yHaZdEOH8Zg.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "PlBIoeIeRbN",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.yHaZdEOH8Zg} == 'IPD_OS_005_75'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "gw40A2cmOOS",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "QZV4tr9L253",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "AacFRjVdALc",
+            "name": "Morbidity-Hypovolemic shock(>= 15 y)",
+            "shortName": "Morbidity-Hypovolemi-emic shock-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "Ogm2ACTSHeU.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "AacFRjVdALc",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.Ogm2ACTSHeU} == 'IPD_OS_005_36'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "UsmaBwgaCHR",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "YeQKSQW2IDg",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "WVN9pim7vBA",
+            "name": "Morbidity-Hypovolemic shock(5 - 14 y)",
+            "shortName": "Morbidity-Hypovolemi-emic shock-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "Ogm2ACTSHeU.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "WVN9pim7vBA",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.Ogm2ACTSHeU} == 'IPD_OS_005_36'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "R4aOmxSJzEf",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "utdJByU6NR8",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "aqGKCjgszQz",
+            "name": "Morbidity-Hypovolemic shock(< 5 y)",
+            "shortName": "Morbidity-Hypovolemi-emic shock-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "Ogm2ACTSHeU.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "aqGKCjgszQz",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.Ogm2ACTSHeU} == 'IPD_OS_005_36'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "AOgvEcyHzRH",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "RUSoNJXWyPt",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "JKMxVhWtdp9",
+            "name": "Admissions/Exits-Deaths <= 48 hours(>= 15 y)",
+            "shortName": "Admissions/Exits-Deaths <= -= 48 hours-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "mABEpkCz00r.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "JKMxVhWtdp9",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.mABEpkCz00r} == ''",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "DxIwBQbSRmn",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "j8fj3k0Gan0",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "dmZZKq6YqwS",
+            "name": "Admissions/Exits-Deaths <= 48 hours(5 - 14 y)",
+            "shortName": "Admissions/Exits-Deaths <= -= 48 hours-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "mABEpkCz00r.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "dmZZKq6YqwS",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.mABEpkCz00r} == ''",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "U7vdOFdandY",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "TnYnYJPHoJl",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "y9SQZaeK3Ob",
+            "name": "Admissions/Exits-Deaths <= 48 hours(< 5 y)",
+            "shortName": "Admissions/Exits-Deaths <= -= 48 hours-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "mABEpkCz00r.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "y9SQZaeK3Ob",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.mABEpkCz00r} == ''",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "bqhtvm1gmEH",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "wt51KiDBDWr",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "PcobVqHOjoS",
+            "name": "Admissions/Exits-Defaulters - IPD(>= 15 y)",
+            "shortName": "Admissions/Exits-Defaulters-ters - IPD-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "RA5CcseW8JC.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "PcobVqHOjoS",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.RA5CcseW8JC} == 'IPD_OS_004_1'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "E9Wt39gwZ5F",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Lv6pfVVbTgz",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "cQNDFf2Zorj",
+            "name": "Admissions/Exits-Defaulters - IPD(5 - 14 y)",
+            "shortName": "Admissions/Exits-Defaulters-ters - IPD-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "RA5CcseW8JC.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "cQNDFf2Zorj",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.RA5CcseW8JC} == 'IPD_OS_004_1'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "MGNl0Ckn9S9",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "G8BaRWx9uli",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "xteHFx2n9RF",
+            "name": "Admissions/Exits-Defaulters - IPD(< 5 y)",
+            "shortName": "Admissions/Exits-Defaulters-ters - IPD-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "RA5CcseW8JC.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "xteHFx2n9RF",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.RA5CcseW8JC} == 'IPD_OS_004_1'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "AcykRAUAFOt",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "msBdZgQpF9H",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "lAl3ZXEnfhZ",
+            "name": "Morbidity-Sexually Transmitted Infection(>= 15 y)",
+            "shortName": "Morbidity-Sexually T- Infection-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "Oz6bdwTmlZj.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "lAl3ZXEnfhZ",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.Oz6bdwTmlZj} == 'IPD_OS_005_66'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "BE5WrWuCoLV",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "U0Jv8WmVxth",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "tIUx2SGF4qG",
+            "name": "Morbidity-Sexually Transmitted Infection(5 - 14 y)",
+            "shortName": "Morbidity-Sexually T- Infection-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "Oz6bdwTmlZj.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "tIUx2SGF4qG",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.Oz6bdwTmlZj} == 'IPD_OS_005_66'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "EckFK94GcTr",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Yf01XGoHydF",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "m9fdlSxwtpv",
+            "name": "Morbidity-Sexually Transmitted Infection(< 5 y)",
+            "shortName": "Morbidity-Sexually T- Infection-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "Oz6bdwTmlZj.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "m9fdlSxwtpv",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.Oz6bdwTmlZj} == 'IPD_OS_005_66'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "y2lQ1EGgUPF",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Vf8EzHJeAwP",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "e4MioPca8Ep",
+            "name": "Morbidity-Unconfirmed malaria(>= 15 y)",
+            "shortName": "Morbidity-Unconfirme-ed malaria-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "SSSYsEdpCKR.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "e4MioPca8Ep",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.SSSYsEdpCKR} == 'IPD_OS_005_12'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "T3Wcbnm9kB0",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "mThItEAuLGF",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "Bp7kT0ZrJjt",
+            "name": "Morbidity-Unconfirmed malaria(5 - 14 y)",
+            "shortName": "Morbidity-Unconfirme-ed malaria-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "SSSYsEdpCKR.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "Bp7kT0ZrJjt",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.SSSYsEdpCKR} == 'IPD_OS_005_12'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "JufixT1JXXt",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "RXNarx4MRcI",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "hS7m1tGwiMl",
+            "name": "Morbidity-Unconfirmed malaria(< 5 y)",
+            "shortName": "Morbidity-Unconfirme-ed malaria-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "SSSYsEdpCKR.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "hS7m1tGwiMl",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.SSSYsEdpCKR} == 'IPD_OS_005_12'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "DcweKczdG4N",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "RPOdLO89H6v",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "LvS3NaSNwyi",
+            "name": "Mortality-Deaths due to Lower Respiratory Tract Infection(>= 15 y)",
+            "shortName": "Mortality-Deaths due- Infection-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "jVGMQl16aoO.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "LvS3NaSNwyi",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.jVGMQl16aoO} == 'IPD_OS_008_15'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "XECr0w8eEEf",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "uoDjPVQEUcX",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "VvnyvAjMlSp",
+            "name": "Mortality-Deaths due to Lower Respiratory Tract Infection(5 - 14 y)",
+            "shortName": "Mortality-Deaths due- Infection-(default)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "jVGMQl16aoO.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "VvnyvAjMlSp",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.jVGMQl16aoO} == 'IPD_OS_008_15'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "i7A0LsiMbwC",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "vjswCCBJYKC",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "IewD7o4v5VK",
+            "name": "Mortality-Deaths due to Lower Respiratory Tract Infection(< 5 y)",
+            "shortName": "Mortality-Deaths due- Infection-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "jVGMQl16aoO.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "IewD7o4v5VK",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.jVGMQl16aoO} == 'IPD_OS_008_15'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "lXMhZMGfTjO",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "HrMxbQl92WK",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "k1HPiIz56iw",
+            "name": "Morbidity-Osteomielytis(>= 15 y)",
+            "shortName": "Morbidity-Osteomiely-eomielytis-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "rAWEPatCXAa.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "k1HPiIz56iw",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.rAWEPatCXAa} == 'IPD_OS_005_49'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "tcZKav47TQJ",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "GalEUSkhVIm",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "YrdXyEup3ut",
+            "name": "Morbidity-Osteomielytis(5 - 14 y)",
+            "shortName": "Morbidity-Osteomiely-eomielytis-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "rAWEPatCXAa.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "YrdXyEup3ut",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.rAWEPatCXAa} == 'IPD_OS_005_49'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "ZYSpzHqfPeL",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "mIrR4ZPJUIR",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "eiY2GwsVA1v",
+            "name": "Morbidity-Osteomielytis(< 5 y)",
+            "shortName": "Morbidity-Osteomiely-eomielytis-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "rAWEPatCXAa.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "eiY2GwsVA1v",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.rAWEPatCXAa} == 'IPD_OS_005_49'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "kzncp1YEVCA",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "aNWg2GB1Cat",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "PfFhZqILhuC",
+            "name": "Mortality-Deaths due to Haemorrhagic shock(>= 15 y)",
+            "shortName": "Mortality-Deaths due-agic shock-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "zPVRtDFPk0t.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "PfFhZqILhuC",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.zPVRtDFPk0t} == 'IPD_OS_008_10'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "qFJombM7oIU",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Usgv4nWIRqn",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "OBnwp5Vcx5z",
+            "name": "Mortality-Deaths due to Haemorrhagic shock(5 - 14 y)",
+            "shortName": "Mortality-Deaths due-agic shock-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "zPVRtDFPk0t.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "OBnwp5Vcx5z",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.zPVRtDFPk0t} == 'IPD_OS_008_10'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "EW92YNTYCVk",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "S3lZXjBSkVB",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "CSUAiP2I5cL",
+            "name": "Mortality-Deaths due to Haemorrhagic shock(< 5 y)",
+            "shortName": "Mortality-Deaths due-agic shock-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "zPVRtDFPk0t.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "CSUAiP2I5cL",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.zPVRtDFPk0t} == 'IPD_OS_008_10'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "O7zPcZcHW7N",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Uu0kLQW8626",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "dqz8qlpiXyX",
+            "name": "Morbidity-Severe malaria - Cerebral(>= 15 y)",
+            "shortName": "Morbidity-Severe mal-- Cerebral-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "CYuMVIWfNNH.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "dqz8qlpiXyX",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.CYuMVIWfNNH} == 'IPD_OS_005_62'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "g0gN3VR5N3o",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "ayMh1s9ELF6",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "bYTaKdVoySx",
+            "name": "Morbidity-Severe malaria - Cerebral(5 - 14 y)",
+            "shortName": "Morbidity-Severe mal-- Cerebral-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "CYuMVIWfNNH.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "bYTaKdVoySx",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.CYuMVIWfNNH} == 'IPD_OS_005_62'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "EI0K3ma22HM",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "khGKMNiFVjD",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "AvP4O6Pk740",
+            "name": "Morbidity-Severe malaria - Cerebral(< 5 y)",
+            "shortName": "Morbidity-Severe mal-- Cerebral-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "CYuMVIWfNNH.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "AvP4O6Pk740",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.CYuMVIWfNNH} == 'IPD_OS_005_62'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "lZ5DIbL70G4",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "tTch1OUYrw7",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "unlBWpMhtML",
+            "name": "Morbidity-Diabetes(>= 15 y)",
+            "shortName": "Morbidity-Diabetes-Diabetes-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "psMXtszCxj0.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "unlBWpMhtML",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.psMXtszCxj0} == 'IPD_OS_005_21'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "ddr2UH4UGmd",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "n9nBZtvaRb8",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "WaFJXGFIMYJ",
+            "name": "Morbidity-Diabetes(5 - 14 y)",
+            "shortName": "Morbidity-Diabetes-Diabetes-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "psMXtszCxj0.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "WaFJXGFIMYJ",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.psMXtszCxj0} == 'IPD_OS_005_21'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "rvU1KjzQTRh",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "T1KMkRjhmcG",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "o3eMpCrMVRD",
+            "name": "Morbidity-Diabetes(< 5 y)",
+            "shortName": "Morbidity-Diabetes-Diabetes-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "psMXtszCxj0.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "o3eMpCrMVRD",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.psMXtszCxj0} == 'IPD_OS_005_21'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "QvfHcA2tCtw",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "VHe3lpIHud0",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "geZxXeLHQ0C",
+            "name": "Morbidity-Filariasis(>= 15 y)",
+            "shortName": "Morbidity-Filariasis-Filariasis-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "aq0LNHzF868.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "geZxXeLHQ0C",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.aq0LNHzF868} == 'IPD_OS_005_24'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "AQYi0Hh2EoI",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "GYzgHr67xb3",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "iyoOyD9Cd3s",
+            "name": "Morbidity-Filariasis(5 - 14 y)",
+            "shortName": "Morbidity-Filariasis-Filariasis-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "aq0LNHzF868.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "iyoOyD9Cd3s",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.aq0LNHzF868} == 'IPD_OS_005_24'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "CYBsLuD8gss",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "NQpblJVY5lF",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "akUPKLU9ZIJ",
+            "name": "Morbidity-Filariasis(< 5 y)",
+            "shortName": "Morbidity-Filariasis-Filariasis-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "aq0LNHzF868.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "akUPKLU9ZIJ",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.aq0LNHzF868} == 'IPD_OS_005_24'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "Q4ctqEsgH5y",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "VebDeW5YnL5",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "IdcPrcvdcIW",
+            "name": "Morbidity-Measles(>= 15 y)",
+            "shortName": "Morbidity-Measles-Measles-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "S5IbooSbxv9.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "IdcPrcvdcIW",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.S5IbooSbxv9} == 'IPD_OS_005_40'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "o436S2y3WIS",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "gFDYk57r5kF",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "cZ4rB7hoTOV",
+            "name": "Morbidity-Measles(5 - 14 y)",
+            "shortName": "Morbidity-Measles-Measles-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "S5IbooSbxv9.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "cZ4rB7hoTOV",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.S5IbooSbxv9} == 'IPD_OS_005_40'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "mugUfVosKae",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Qxg9csSbwUg",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "zwDQYFfy03p",
+            "name": "Morbidity-Measles(< 5 y)",
+            "shortName": "Morbidity-Measles-Measles-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "S5IbooSbxv9.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "zwDQYFfy03p",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.S5IbooSbxv9} == 'IPD_OS_005_40'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "pd86bdptY6p",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "Zc8tqAwcELM",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "SeoQHxXisqQ",
+            "name": "Morbidity-Hepatitis - acute(>= 15 y)",
+            "shortName": "Morbidity-Hepatitis -is - acute-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "xuIRPEN3K2M.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "SeoQHxXisqQ",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.xuIRPEN3K2M} == 'IPD_OS_005_30'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "O24SNTUDedD",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "astyXJaA0Ux",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "OxfpvmPpcr0",
+            "name": "Morbidity-Hepatitis - acute(5 - 14 y)",
+            "shortName": "Morbidity-Hepatitis -is - acute-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "xuIRPEN3K2M.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "OxfpvmPpcr0",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.xuIRPEN3K2M} == 'IPD_OS_005_30'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "iThrpBBgZ1U",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "J4KK64VFuqG",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "g3UpnNjULRy",
+            "name": "Morbidity-Hepatitis - acute(< 5 y)",
+            "shortName": "Morbidity-Hepatitis -is - acute-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "xuIRPEN3K2M.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "g3UpnNjULRy",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.xuIRPEN3K2M} == 'IPD_OS_005_30'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "xtdezC9qN3l",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "San7yx9a4dC",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "G55xHqk33sh",
+            "name": "Mortality-Deaths due to Measles(>= 15 y)",
+            "shortName": "Mortality-Deaths due-to Measles-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "OoyOafXVan9.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "G55xHqk33sh",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.OoyOafXVan9} == 'IPD_OS_008_17'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "oi8FOTjsFYC",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "QpycsIX6x0x",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "lAgNj5rfjyO",
+            "name": "Mortality-Deaths due to Measles(5 - 14 y)",
+            "shortName": "Mortality-Deaths due-to Measles-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "OoyOafXVan9.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "lAgNj5rfjyO",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.OoyOafXVan9} == 'IPD_OS_008_17'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "Yeg0HKo6Cj3",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "GpNdFoPvgzI",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "AF6qJuyKq1z",
+            "name": "Mortality-Deaths due to Measles(< 5 y)",
+            "shortName": "Mortality-Deaths due-to Measles-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "OoyOafXVan9.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "AF6qJuyKq1z",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.OoyOafXVan9} == 'IPD_OS_008_17'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "lJFdw9NILl3",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "p06YtvBG47t",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "k4dVDvXPveu",
+            "name": "Morbidity-Dengue with no warning signs(>= 15 y)",
+            "shortName": "Morbidity-Dengue wit-ning signs-(5 - 14 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "KFAAVdFVCvu.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "k4dVDvXPveu",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 15&&#{Xep5Pti2KkG.KFAAVdFVCvu} == 'IPD_OS_005_19'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "iNVQWoAYRnj",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "HHnXncc3RG2",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "sJjTTIvNkHe",
+            "name": "Morbidity-Dengue with no warning signs(5 - 14 y)",
+            "shortName": "Morbidity-Dengue wit-ning signs-(< 5 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "KFAAVdFVCvu.MrkCVMsj7yo",
+            "expression": "V{event_count}",
+            "dimensionItem": "sJjTTIvNkHe",
+            "filter": "#{Xep5Pti2KkG.DlUapiJ50Yr} >= 5 && #{Xep5Pti2KkG.DlUapiJ50Yr} <= 14&&#{Xep5Pti2KkG.KFAAVdFVCvu} == 'IPD_OS_005_19'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "o7Ghev8TlE9",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "HXLJaCl2wnz",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        },
+        {
+            "id": "xDRunBGJKL9",
+            "name": "Morbidity-Dengue with no warning signs(< 5 y)",
+            "shortName": "Morbidity-Dengue wit-ning signs-(>= 15 y)",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "Xep5Pti2KkG.DlUapiJ50Yr",
+            "displayShortName": "KFAAVdFVCvu.qu9WCWIWLeJ",
+            "expression": "V{event_count}",
+            "dimensionItem": "xDRunBGJKL9",
+            "filter": "#{Xep5Pti2KkG.Lad60sYSBJm} < 5&&#{Xep5Pti2KkG.KFAAVdFVCvu} == 'IPD_OS_005_19'",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "mogyzFQXKJ8"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "R28YatIxL0d",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                },
+                {
+                    "id": "EPY4v2ox5bF",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "#{Xep5Pti2KkG.TthnUslUbW7}"
+                }
+            ]
+        }
+    ]
+}

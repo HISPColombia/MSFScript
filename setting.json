@@ -1,0 +1,32 @@
+{
+    "primaryServer":{
+        "programID":"mogyzFQXKJ8",
+        "programStageID":"Xep5Pti2KkG",
+        "orgUnit":"LEVEL-5;qpJEeiIfW42", 
+        "period":"2019W26",    
+        "name":"Primary Server",
+        "baseUrl":"http://localhost:8080/dhis/api/",
+        "user":"admin",
+        "password":"district"
+    },
+    "secundaryServer":{
+        "programID":"mogyzFQXKJ8",
+        "programStageID":"Xep5Pti2KkG",
+        "orgUnit":"LEVEL-5;qpJEeiIfW42", 
+        "period":"2019W26",
+        "name":"Secundary Server",
+        "baseUrl":"http://localhost:8080/dhis/api/",
+        "user":"admin",
+        "password":"district"
+    },
+    "testing":{
+        "programID":"",
+        "programStageID":"",
+        "orgUnit":"LEVEL-5;qpJEeiIfW42", 
+        "period":"2019W26",
+        "name":"Test Server",
+        "baseUrl":"http://localhost:8080/dhis/api/",
+        "user":"admin",
+        "password":"district"
+    }
+}
