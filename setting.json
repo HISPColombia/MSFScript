@@ -1,7 +1,7 @@
 {
     "primaryServer":{
-        "programID":"mogyzFQXKJ8",
-        "programStageID":"Xep5Pti2KkG",
+        "programID":"GNsDMDliWNX",
+        "programStageID":"uwN7IFkhD9t",
         "orgUnit":"LEVEL-5;qpJEeiIfW42", 
         "period":"2019W26",    
         "name":"Primary Server",
@@ -10,8 +10,8 @@
         "password":"district"
     },
     "secundaryServer":{
-        "programID":"mogyzFQXKJ8",
-        "programStageID":"Xep5Pti2KkG",
+        "programID":"GNsDMDliWNX",
+        "programStageID":"uwN7IFkhD9t",
         "orgUnit":"LEVEL-5;qpJEeiIfW42", 
         "period":"2019W26",
         "name":"Secundary Server",
@@ -20,7 +20,7 @@
         "password":"district"
     },
     "testing":{
-        "programID":"",
+        "programID":"GNsDMDliWNX",
         "programStageID":"",
         "orgUnit":"LEVEL-5;qpJEeiIfW42", 
         "period":"2019W26",
