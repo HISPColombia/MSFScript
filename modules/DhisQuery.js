@@ -35,6 +35,14 @@ module.exports = class DhisQuery {
             return resp
         })
     }
+    getValueUpdated(startDate){
+         const st=this.setting
+         let url = st.baseUrl+'/events?program='+st.programID+'&lastUpdatedStartDate='+startDate
+         return this._queryApi(url,"GET")
+        .then(resp=>{
+            return resp
+        })
+    }
     setDataValue(de,pe,co,ou,value){
         const st=this.setting
         let url = st.baseUrl+"dataValues?de="+de+"&pe="+pe+"&co="+co+"&ou="+ou+"&value="+value
