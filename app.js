@@ -37,13 +37,13 @@ async function _run(){
         var periods=await getWeekends()
         console.log("Periodo consultado (Semanas): ",periods)
         let pr=await DHISAppQuery.getProgramIndicators();
-        pr.programIndicators.forEach(indicator => {
-                if(indicator.aggregateExportCategoryOptionCombo!=undefined){ // 
-                        let de=indicator.aggregateExportCategoryOptionCombo.split(".")[0]//DataElement
-                        let co=indicator.aggregateExportCategoryOptionCombo.split(".")[1]//CategoryCombo
+        //pr.programIndicators.forEach(indicator => {
+             //   if(indicator.aggregateExportCategoryOptionCombo!=undefined){ // 
+             //           let de=indicator.aggregateExportCategoryOptionCombo.split(".")[0]//DataElement
+             //           let co=indicator.aggregateExportCategoryOptionCombo.split(".")[1]//CategoryCombo
                         settingParameters(indicator.id,de,co,periods)
-                }
-        });        
+             //   }
+       // });        
 }
 //start Script
 _run()
