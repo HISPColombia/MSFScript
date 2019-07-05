@@ -2,8 +2,7 @@
     "primaryServer":{
         "programID":"GNsDMDliWNX",
         "programStageID":"uwN7IFkhD9t",
-        "orgUnit":"LEVEL-5;qpJEeiIfW42", 
-        "period":"2019W26",    
+        "orgUnit":"LEVEL-6;G7g4TvbjFlX",  
         "name":"Primary Server",
         "baseUrl":"http://localhost:8080/dhis/api/",
         "user":"admin",
@@ -12,8 +11,7 @@
     "secundaryServer":{
         "programID":"GNsDMDliWNX",
         "programStageID":"uwN7IFkhD9t",
-        "orgUnit":"LEVEL-5;qpJEeiIfW42", 
-        "period":"2019W26",
+        "orgUnit":"LEVEL-6;G7g4TvbjFlX", 
         "name":"Secundary Server",
         "baseUrl":"http://localhost:8080/dhis/api/",
         "user":"admin",
@@ -22,8 +20,7 @@
     "testing":{
         "programID":"GNsDMDliWNX",
         "programStageID":"",
-        "orgUnit":"LEVEL-5;qpJEeiIfW42", 
-        "period":"2019W26",
+        "orgUnit":"LEVEL-6;G7g4TvbjFlX", 
         "name":"Test Server",
         "baseUrl":"http://localhost:8080/dhis/api/",
         "user":"admin",
