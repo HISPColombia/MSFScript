@@ -26,7 +26,6 @@ module.exports = class DhisQuery {
        const st=this.setting
        //let url = st.baseUrl+'analytics/events/query/'+st.programID+'?dimension=pe:'+st.period+'&dimension=ou:'+st.orgUnit+'&stage='+st.programStageID+'&displayProperty=NAME&outputType=EVENT&skipPaging=true'+'&dimension='+ProgramIndicator
        let url = st.baseUrl+'analytics/events/aggregate/'+st.programID+'?dimension=pe:'+st.period+'&dimension=ou:'+st.orgUnit+'&stage='+st.programStageID+'&displayProperty=NAME&outputType=EVENT&skipPaging=true'
-       
        return await this._queryApi(url,"GET")
        
    }
@@ -38,7 +37,6 @@ module.exports = class DhisQuery {
    async setDataValue(de,pe,co,ou,value){
        const st=this.setting
        let url = st.baseUrl+"dataValues?de="+de+"&pe="+pe+"&co="+co+"&ou="+ou+"&value="+value
-       console.log(url)
        return await this._queryApi(url,"POST")
    }
    

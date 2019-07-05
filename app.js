@@ -2,8 +2,11 @@
 //import principal module and setting
 const setting=require("./setting.json")
 const DhisQuery =require('./modules/DhisQuery')
+//Utility
+const utility= require("./Utilities")
 //create object
 let DHISAppQuery = new DhisQuery(setting.testing)
+
 async function settingParameters(id,de,co){
         let dv = await DHISAppQuery.getDataValueProgramIndicators(id);
         console.log(dv.rows)
@@ -11,12 +14,12 @@ async function settingParameters(id,de,co){
                 let pe= MetaValue[0]
                 let ou= MetaValue[1]
                 let value=MetaValue[2]
-                console.log(pe)
                 DHISAppQuery.setDataValue(de,pe,co,ou,value)
         }) 
 
 }
 async function _run(){
+        utility.ConvertToWeekDHIS()
         let pr=await DHISAppQuery.getProgramIndicators();
         pr.programIndicators.forEach(indicator => {
                 if(indicator.aggregateExportCategoryOptionCombo!=undefined){ // 
