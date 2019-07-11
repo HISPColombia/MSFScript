@@ -20,12 +20,13 @@ const localStyle = {
         maxWidth: 'none',
     },
     Console:{
-        height: 400,
+        height: 800,
         width: '90%',
         margin: 20,
         textAlign: 'left',
         backgroundColor: '#000000',
-        color:"#FFFFFF"
+        color:"#FFFFFF",
+        overflowY: 'scroll'
       }
 
 }
@@ -46,8 +47,7 @@ class Main extends Component {
       handleClose(){
         this.setState({open: false});
       };
-    async  getWeeks(){
-        const DHISAppQuery = new DhisQuery(setting.testing,this.props.d2)
+    async  getWeeks(DHISAppQuery){
         const startDate = await DHISAppQuery.getDataStore();
         const records = await DHISAppQuery.getValueUpdated(startDate.date);
         var listPeriods="";
@@ -60,8 +60,7 @@ class Main extends Component {
         })
         return listPeriods;       
     }
-    async  getOrganisationUnits(){
-        const DHISAppQuery = new DhisQuery(setting.testing,this.props.d2)
+    async  getOrganisationUnits(DHISAppQuery){
         const records = await DHISAppQuery.getOrganisationUnits();
         var listOU=""
         records.organisationUnits.forEach(ou=>{
@@ -73,14 +72,16 @@ class Main extends Component {
         })
         return listOU;       
     }
-    async  settingParameters(id,de,co,periods,ous){
-            const DHISAppQuery = new DhisQuery(setting.testing,this.props.d2)
+    async  settingParameters(DHISAppQuery,id,de,co,periods,ous){
+            this.addResult("\n Step 3. Query data value (from program indicators).. \n");
             let dv = await DHISAppQuery.getDataValueProgramIndicators(id,periods,ous);
             dv.rows.forEach(MetaValue=>{
-                    let pe= MetaValue[0]
-                    let ou= MetaValue[1]
-                    let value=MetaValue[2]
-                    console.log(MetaValue)
+                    let pe= MetaValue[1]
+                    let ou= MetaValue[2]
+                    let value=MetaValue[3]
+                    this.addResult("\n--------------------------------------- \n")                    
+                    this.addResult("\n Step 4. Importing data.. \n");
+                    this.addResult("\n Period: "+ pe+" Organisation Unit: "+ou+"Value: "+value)
                     DHISAppQuery.setDataValue(de,pe,co,ou,value)
             }) 
 
@@ -91,21 +92,24 @@ class Main extends Component {
         this.setState({result})
     }
     async _run(){
-        var periods=await this.getWeeks()
-        this.addResult("\n--------------------------------------- \n")
-        this.addResult("\n Periodo consultado (Semanas): "+ periods)
+        //Start setting
         const DHISAppQuery = new DhisQuery(setting.testing,this.props.d2)
-        const ous=await this.getOrganisationUnits();
-        this.addResult("\n Unidades Organizativas incluidas: "+ ous)
+        //solo por probar
+        //DHISAppQuery.setDataStore("2019-07-01");
+        ////
+        var periods=await this.getWeeks(DHISAppQuery)
+        this.addResult("\n--------------------------------------- \n")
+        this.addResult("\n Step #1 . Setting Periods: "+ periods)        
+        const ous=await this.getOrganisationUnits(DHISAppQuery);
+        this.addResult("\n Step #2 .Setting Organisation Units: "+ ous)
         let pr=await DHISAppQuery.getProgramIndicators();
-        //pr.programIndicators.forEach(indicator => {
-             //   if(indicator.aggregateExportCategoryOptionCombo!=undefined){ // 
-             //           let de=indicator.aggregateExportCategoryOptionCombo.split(".")[0]//DataElement
-             //           let co=indicator.aggregateExportCategoryOptionCombo.split(".")[1]//CategoryCombo
-             var indicator={id:""},de="",co="" ;          
-             settingParameters(indicator.id,de,co,periods,ous)
-             //   }
-       // });        
+        pr.programIndicators.forEach(indicator => {
+               if(indicator.aggregateExportCategoryOptionCombo!=undefined){ // 
+                       let de=indicator.aggregateExportCategoryOptionCombo.split(".")[0]//DataElement
+                       let co=indicator.aggregateExportCategoryOptionCombo.split(".")[1]//CategoryCombo     
+                        this.settingParameters(DHISAppQuery,indicator.id,de,co,periods,ous)
+              }
+       });        
     }
    
     render() {

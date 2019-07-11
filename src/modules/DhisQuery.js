@@ -63,10 +63,12 @@ module.exports = class DhisQuery {
     }
    //Method to get data values calculated with the analytic dhis process
    async getDataValueProgramIndicators(ProgramIndicator,periods,ous){
-       const st=this.setting
-       //let url = st.baseUrl+'analytics/events/query/'+st.programID+'?dimension=pe:'+st.period+'&dimension=ou:'+st.orgUnit+'&stage='+st.programStageID+'&displayProperty=NAME&outputType=EVENT&skipPaging=true'+'&dimension='+ProgramIndicator
-       let url = 'analytics/events/aggregate/'+st.programID+'?dimension=pe:'+periods+'&dimension=ou:'+ous+'&stage='+st.programStageID+'&displayProperty=NAME&outputType=EVENT&skipPaging=true'
-       return await this.getResourceSelected(url,"GET")
+       
+        //let url = st.baseUrl+'analytics/events/query/'+st.programID+'?dimension=pe:'+st.period+'&dimension=ou:'+st.orgUnit+'&stage='+st.programStageID+'&displayProperty=NAME&outputType=EVENT&skipPaging=true'+'&dimension='+ProgramIndicator
+       //let url = 'analytics/events/aggregate/'+st.programID+'?dimension=pe:'+periods+'&dimension=ou:'+ous+'&stage='+st.programStageID+'&displayProperty=NAME&outputType=EVENT&skipPaging=true'
+        const st=this.setting
+        let url="analytics?dimension=dx:"+ProgramIndicator+"&dimension=pe:"+periods+"&dimension=ou:"+ous+"&displayProperty=NAME"
+        return await this.getResourceSelected(url,"GET")
        
    }
    async getValueUpdated(startDate){
@@ -82,8 +84,15 @@ module.exports = class DhisQuery {
    async setDataStore(date){
     //curl "http://localhost:8080/dhis/api/dataStore/AppAggregateIndicators/LastDateExecuted" -X POST -H "Content-Type: application/json" -d "{\"date\":\"2019-07-02\"}" -u admin:district -v
     const st=this.setting
+    if(date==undefined){
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var yyyy = today.getFullYear();
+        date = yyyy+"-"+mm+"-"+dd;
+    }
     let url = "dataStore/AppAggregateIndicators/LastDateExecuted"
-    return await this.getResourceSelected(url,"POST",JSON.stringify( {"date":date} ))
+    return await this.setResourceSelected(url,{"date":date})
    }
    async getDataStore(){
     const st=this.setting
