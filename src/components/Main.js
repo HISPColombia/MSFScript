@@ -81,10 +81,12 @@ class Main extends Component {
         const group=ind.programIndicatorGroups[0].id;
         //find orgUnit
         const our=this.state.rawOrgUnits.organisationUnits.find(rawOrgUnit=>{
-            return rawOrgUnit.id==ou;
-        }).programIndicatorGroups.find(ouGroup=>{
-            return ouGroup=group //validates that the OU and the indicator have the same code
+            let indexGroup = rawOrgUnit.organisationUnitGroups.findIndex(ouGroup=>{
+                return ouGroup=group //validates that the OU and the indicator have the same code
+            })
+            return (rawOrgUnit.id==ou && indexGroup>-1);
         })
+       
         return ({
             ouId:our.id,
             ouName:our.name,
