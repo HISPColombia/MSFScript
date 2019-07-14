@@ -63,13 +63,13 @@ module.exports = class DhisQuery {
     //Method to get program indicators
      async getProgramIndicators(){
         const st=this.setting
-       let url="programs/"+st.programid+"/programIndicators?fields=id,name,programIndicatorGroups[id,code]"
+       let url="programs/"+st.programid+"/programIndicators?fields=id,name,programIndicatorGroups[id,code],aggregateExportCategoryOptionCombo"
        return await this.getResourceSelected(url)
    }
      //Method to query organisation units associated to program
      async getOrganisationUnits(){
         const st=this.setting
-        let url="programs/"+st.programid+"/organisationUnits?fields=id,organisationUnitGroups[code]"
+        let url="programs/"+st.programid+"/organisationUnits?fields=id,name,organisationUnitGroups[code]"
         return await this.getResourceSelected(url)
     }
    //Method to get data values calculated with the analytic dhis process

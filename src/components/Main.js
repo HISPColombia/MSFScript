@@ -41,7 +41,9 @@ class Main extends Component {
             startDate:"",
             setting:{},
             fistSetting:false,
-            fistImport:false
+            fistImport:false,
+            rawIndicators:[],
+            rawOrgUnits:[] 
         }
     }
     
@@ -70,24 +72,27 @@ class Main extends Component {
         this.setState({NewstartDate:value });
     }
     
-    setMatchObjects(key,arrayGroups,type){
-        var listGroups={indicators:{},ous:{}};
-        try{
-         arrayGroups.forEach(group=>{
-            
-            if(listGroups[type][group.code]){
-                listGroups[type][group.code]=listGroups[type][group.code]+";"+key;
-            }
-            else{
-                listGroups[type][group.code]=key;
-            }
-             listGroups[type][group.code];
-           console.log(listGroups)
+    validateMatch(indicator,ou){
+ 
+        //find indicator
+        const ind=this.state.rawIndicators.programIndicators.find(rawIndicator=>{
+            return rawIndicator.id==indicator;
         })
-    }
-    catch(err){
-         undefined;
-    }
+        const group=ind.programIndicatorGroups[0].id;
+        //find orgUnit
+        const our=this.state.rawOrgUnits.organisationUnits.find(rawOrgUnit=>{
+            return rawOrgUnit.id==ou;
+        }).programIndicatorGroups.find(ouGroup=>{
+            return ouGroup=group //validates that the OU and the indicator have the same code
+        })
+        return ({
+            ouId:our.id,
+            ouName:our.name,
+            inId:ind.id,
+            indName:ind.Name,
+            de:ind.aggregateExportCategoryOptionCombo.split(".")[0],
+            co:ind.aggregateExportCategoryOptionCombo.split(".")[1]
+        }) 
     }
     async  getWeeks(DHISAppQuery){
         const records = await DHISAppQuery.getValueUpdated(this.state.startDate);
@@ -104,38 +109,66 @@ class Main extends Component {
     async  getOrganisationUnits(DHISAppQuery){
         const records = await DHISAppQuery.getOrganisationUnits();
         var listOU=""
+        this.setState({rawOrgUnits:records})
         records.organisationUnits.forEach(ou=>{
                 if(!listOU.includes(ou.id)){
                     if(listOU=="")
                         listOU=ou.id
                     else
                         listOU=listOU+";"+ou.id
-                this.setMatchObjects(ou.id,ou.organisationUnitGroups,"ous")
                 } 
 
         })
         return listOU;       
     }
-    async  settingParameters(DHISAppQuery,indicators,de,co,periods,ous){
-            this.addResult("\n Step #3. Query data value (from program indicators).. \n");
+    async  getProgramIndicators(DHISAppQuery){
+        const records = await DHISAppQuery.getProgramIndicators();
+        var listIndicator=[],kin=0;
+        this.setState({rawIndicators:records})
+        records.programIndicators.forEach((ind,index)=>{
+                if (listIndicator[kin]==undefined)
+                    listIndicator[kin]=""
+                if(!listIndicator[kin].includes(ind.id)){
+                    if(listIndicator[kin]=="")
+                    listIndicator[kin]=ind.id
+                    else
+                    listIndicator[kin]=listIndicator[kin]+";"+ind.id
+                }
+                //
+                if(index%(this.state.setting.maxrecords)*1==0 && index>0){
+                    kin=kin+1;
+                } 
+
+        })
+        return listIndicator;       
+    }
+    async  geTandSetAggregateIndicators(DHISAppQuery,indicators,periods,ous){
+            this.addResult("\n Step #3. Query data value (from program indicators) : "+indicators);
             let dv = await DHISAppQuery.getDataValueProgramIndicators(indicators,periods,ous);
             dv.rows.forEach(MetaValue=>{
                     let pi=MetaValue[0]
                     let pe= MetaValue[1]
                     let ou= MetaValue[2]
                     let value=MetaValue[3]
+                    //validate match
+                    let dataIndicator=this.validateMatch(pi,ou)
+                    console.log(dataIndicator)
                     this.addResult("\n--------------------------------------- \n")                    
                     this.addResult("\n Step #4. Importing data.. \n");
-                    this.addResult("\n Period: "+ pe+" Organisation Unit: "+ou+"Value: "+value)
-                    //DHISAppQuery.setDataValue(de,pe,co,ou,value)
+                    
+                    this.addResult("\n From: Indicator:"+pi+" Period: "+ pe+" Organisation Unit: "+ou+" Value: "+value)
+                    this.addResult("\n To:")
+                     //DHISAppQuery.setDataValue(de,pe,co,ou,value)
             }) 
 
     }
+
     addResult(text){
         let result=this.state.result;
         result=result+text;
         this.setState({result})
     }
+
     async _run(){
         //Start setting
         const DHISAppQuery = new DhisQuery(this.state.setting,this.props.d2)
@@ -145,20 +178,17 @@ class Main extends Component {
         this.addResult("\n Step #1 . Setting Periods: "+ periods)        
         const ous=await this.getOrganisationUnits(DHISAppQuery);
         this.addResult("\n Step #2 .Setting Organisation Units: "+ ous)
-        let pr=await DHISAppQuery.getProgramIndicators();
-        pr.programIndicators.forEach(indicator => {
-               if(indicator.aggregateExportCategoryOptionCombo!=undefined){ // 
-                       let de=indicator.aggregateExportCategoryOptionCombo.split(".")[0]//DataElement
-                       let co=indicator.aggregateExportCategoryOptionCombo.split(".")[1]//CategoryCombo     
-                        this.settingParameters(DHISAppQuery,indicator.id,de,co,periods,ous)
-              }
-       });  
+        let pr=await this.getProgramIndicators(DHISAppQuery);
+        pr.forEach(indicators => {
+            this.geTandSetAggregateIndicators(DHISAppQuery,indicators,periods,ous)
+        });  
        //update date
        if(this.state.fistImport==true)
             DHISAppQuery.setLastDateExecuted({date:this.state.currentDate})
         else
             DHISAppQuery.upLastDateExecuted({date:this.state.currentDate})
     }
+
     async geTandShowLastUpdate(DHISAppQuery){
         const {date} = await DHISAppQuery.getLastDateExecuted();
         //get current date
