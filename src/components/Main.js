@@ -185,7 +185,8 @@ class Main extends Component {
                 this.addResult("\n From:\n\n Indicator: " + dataIndicator.inId + " \n Period: " + pe + "\n Organisation Unit: " + dataIndicator.ouId + " \n Value: " + value)
                 this.addResult("\n\n To:\n\n Category: " + dataIndicator.co + "\n Data Element: " + dataIndicator.de)
                 //Save in Data Set
-                DHISAppQuery.setDataValue(de,pe,co,ou,value)
+                value=value.split(".")[0];
+                DHISAppQuery.setDataValue(dataIndicator.de,pe,dataIndicator.co,ou,value)
                 this.addResult("\n--------------------------------------- \n")
                 let dataImported = this.state.dataImported;
                 dataIndicator["value"] = value;
