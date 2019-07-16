@@ -35,7 +35,8 @@
     "d2-ui": "29.0.29",
     "d2-utilizr": "0.2.15",
     "material-ui": "^0.20.0",
-    "webpack-cli": "^3.1.1"
+    "webpack": "^4.2.0",
+    "webpack-cli": "^3.3.6"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -58,7 +59,6 @@
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "susy": "^3.0.3",
-    "webpack": "^4.2.0",
     "webpack-dev-server": "^3.1.1"
   },
   "pre-commit": [
