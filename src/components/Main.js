@@ -204,6 +204,12 @@ class Main extends Component {
         this.setState({ result })
     }
 
+    addZero(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
     async geTandShowLastUpdate(DHISAppQuery) {
         const { date } = await DHISAppQuery.getLastDateExecuted();
         //get current date 2019-07-25T07:10:24.026
