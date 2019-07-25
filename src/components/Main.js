@@ -206,12 +206,15 @@ class Main extends Component {
 
     async geTandShowLastUpdate(DHISAppQuery) {
         const { date } = await DHISAppQuery.getLastDateExecuted();
-        //get current date
+        //get current date 2019-07-25T07:10:24.026
         var today = new Date();
+        var h = addZero(today.getHours());
+        var m = addZero(today.getMinutes());
+        var s = addZero(today.getSeconds());
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
-        var currentDate = yyyy + "-" + mm + "-" + dd;
+        var currentDate = yyyy + "-" + mm + "-" + dd+"T"+h+":"+m+":"+s;
 
         if (date == undefined)
             this.setState({ startDate: currentDate, NewstartDate: currentDate, currentDate, fistImport: true });
