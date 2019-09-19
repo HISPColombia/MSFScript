@@ -5,6 +5,18 @@ module.exports = class DhisQuery {
        this.d2=d2;
     }
     //Method to query DHIS API
+    async ResourceExternalSelected(url,method,body){
+        const st=this.setting
+        let headers = new Headers(); 
+        headers.append('Content-Type', 'application/json');
+        headers.set('Authorization', 'Basic ' + Buffer.from(st.user + ":" + st.password).toString('base64'));
+        return fetch(url, 
+             {
+             method,
+             headers,
+             body
+             })
+     }
 
     async getResourceSelected(resource) {
         const api = this.d2.Api.getApi();
@@ -21,20 +33,6 @@ module.exports = class DhisQuery {
         return result;    
     
     }
-    async getResourceExternalSelected(url,method,body){
-        const st=this.setting
-        let headers = new Headers(); 
-        headers.set('Authorization', 'Basic ' + Buffer.from(st.user + ":" + st.password).toString('base64'));
-        return await fetch(url, 
-             {
-             method,
-             headers,
-             body
-             })
-        .then(response => response.json())
-        .then(json =>{return(json)});
-     }
-
     async setResourceSelected(resource,payload) {
         const api = this.d2.Api.getApi();
         let result = {};
@@ -80,13 +78,22 @@ module.exports = class DhisQuery {
    }
    async getValueUpdated(startDate){
         const st=this.setting
-        let url = 'events?fields=eventDate&paging=false&program='+st.programid+'&lastUpdatedStartDate='+startDate
+        let url = "events/query.json?programStage="+st.programstageid+"&lastUpdatedStartDate="+startDate+"&dataElement=TthnUslUbW7&order=lastUpdated:desc&totalPages=false"
+        //let url = 'events?fields=eventDate&paging=false&program='+st.programid+'&lastUpdatedStartDate='+startDate
         return await this.getResourceSelected(url)
    }
    async setDataValue(de,pe,co,ou,value){
        let url = "dataValues?de="+de+"&pe="+pe+"&co="+co+"&ou="+ou+"&value="+value
        return await this.setResourceSelected(url)
    }
+   async setDataValue_ExternalServer(urlBase,de,pe,co,ou,value){
+    let url = urlBase+"dataValues?de="+de+"&pe="+pe+"&co="+co+"&ou="+ou+"&value="+value
+    return await this.ResourceExternalSelected(url,"POST",{})
+    }
+    async setDataValue_ExternalServerBulk(urlBase,payload){
+        let url = urlBase+"dataValueSets?async=true"
+        return await this.ResourceExternalSelected(url,"POST",payload)
+        }
    async setLastDateExecuted(date){
     let url = "dataStore/AppAggregateIndicators/LastDateExecuted"
     return await this.setResourceSelected(url,date)
@@ -110,6 +117,10 @@ module.exports = class DhisQuery {
 
    async getSetting(){
     let url = "dataStore/AppAggregateIndicators/setting" 
+    return await this.getResourceSelected(url)
+   }
+   async getServerDate(){
+    let url = "/system/info" 
     return await this.getResourceSelected(url)
    }
    
