@@ -17,6 +17,21 @@ module.exports = class DhisQuery {
              body
              })
      }
+         //Method to query DHIS API
+    async ResourceExternalSelectedBulk(url,method,body){
+        const st=this.setting
+        let headers = new Headers(); 
+        headers.append('Content-Type', 'application/json');
+        headers.set('Authorization', 'Basic ' + Buffer.from(st.user + ":" + st.password).toString('base64'));
+        return fetch(url, 
+             {
+             method,
+             headers,
+             body
+             }).then(response => response.json())
+             .catch(error => console.error('Error:', error));
+     }
+
 
     async getResourceSelected(resource) {
         const api = this.d2.Api.getApi();
@@ -92,7 +107,7 @@ module.exports = class DhisQuery {
     }
     async setDataValue_ExternalServerBulk(urlBase,payload){
         let url = urlBase+"dataValueSets?async=true"
-        return await this.ResourceExternalSelected(url,"POST",payload)
+        return await this.ResourceExternalSelectedBulk(url,"POST",payload)
         }
    async setLastDateExecuted(date){
     let url = "dataStore/AppAggregateIndicators/LastDateExecuted"

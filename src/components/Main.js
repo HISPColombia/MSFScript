@@ -8,6 +8,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import CloudDownload from 'material-ui/svg-icons/file/cloud-download'
 import Settings from 'material-ui/svg-icons/action/settings';
 import TextField from 'material-ui/TextField';
 import Avatar from 'material-ui/Avatar';
@@ -15,6 +16,8 @@ import Chip from 'material-ui/Chip';
 import Toggle from 'material-ui/Toggle';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import IconButton from 'material-ui/IconButton';
+import LinearProgress from 'material-ui/LinearProgress';
+import Snackbar from 'material-ui/Snackbar';
 import {
     Table,
     TableBody,
@@ -77,6 +80,7 @@ class Main extends Component {
         this.state = {
             result: "\n Script para la agregación de indicadores \n MSF.2019 \n Versión:0.1",
             open: false,
+            openSnackBar: false,
             openvdata: false,
             startDate: "",
             setting: {},
@@ -89,7 +93,9 @@ class Main extends Component {
             Summarynoimported: 0,
             Summaryerror: 0,
             dataValues:[],
-            bulk:false
+            bulk:false,
+            downloadValue:undefined,
+            running:false
         }
     }
 
@@ -131,16 +137,27 @@ class Main extends Component {
         const ind = this.state.rawIndicators.programIndicators.find(rawIndicator => {
             return rawIndicator.id == indicator;
         })
-        if(ind.name.includes("Inpatient Days")){
-            return ({
-                ouId: undefined,
-                ouName: undefined,
-                inId: ind.id,
-                indName: ind.name,
-                de: ind.aggregateExportCategoryOptionCombo.split(".")[0],
-                co: ind.aggregateExportCategoryOptionCombo.split(".")[1]
-            })
-        }
+        // if(ind.name.includes("Inpatient Days")){
+        //     if (ind.aggregateExportCategoryOptionCombo!=undefined)
+        //         return ({
+        //             ouId: undefined,
+        //             ouName: undefined,
+        //             inId: ind.id,
+        //             indName: ind.name,
+        //             de: ind.aggregateExportCategoryOptionCombo.split(".")[0],
+        //             co: ind.aggregateExportCategoryOptionCombo.split(".")[1]
+        //         })
+        //     else
+        //         return ({
+        //             ouId: undefined,
+        //             ouName: undefined,
+        //             inId: ind.id,
+        //             indName: ind.name,
+        //             de: undefined,
+        //             co: undefined
+        //         })
+
+        // }
         if(ind.programIndicatorGroups.length==0){
             this.addResult("\n\n Warning, indicator "+indicator+" without programIndicatorGroups")
             return {ouId:undefined}
@@ -166,7 +183,6 @@ class Main extends Component {
             })
         }
         else{
-            console.log("Testing >> Issue #10>>>> Indicator",indicator,"OU>>",ou,"Find Indicator",ind)
             this.addResult("\n\n Warning, no Match of programIndicatorGroups/organisationUnitGroups between indicator:"+indicator+" and org unit"+ou)
             return {ouId:undefined}
         }
@@ -235,9 +251,15 @@ class Main extends Component {
         if(lastIndicatorGroup==true){
             if(this.state.bulk==true){
                 var resp = await DHISAppQuery.setDataValue_ExternalServerBulk(this.state.setting.url,JSON.stringify({dataValues:this.state.dataValues})); 
-                console.log(resp)    
+                console.log(resp) 
+                //generate json to download
+                var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({dataValues:this.state.dataValues}));
+                this.setState({downloadValue:dataStr})   
             }
+            this.setState({running:false, openSnackBar: true})
+            
             this.addResult("\n\n Export has finished ")
+
         }
  
     }
@@ -256,7 +278,7 @@ class Main extends Component {
             value = value.split(".")[0];
             //validate match, If return ou id then there is match, else there is no match.
             let dataIndicator = this.validateMatch(pi, ou)
-            if (dataIndicator.ouId != undefined) {
+            if (dataIndicator.ouId != undefined && !dataIndicator.indName.includes("Inpatient Days")) {
                 this.addResult("\n From:\n\n Indicator: " + dataIndicator.inId + " \n Period: " + pe + "\n Organisation Unit: " + dataIndicator.ouId + " \n Value: " + value)
                 this.addResult("\n\n To:\n\n Category: " + dataIndicator.co + "\n Data Element: " + dataIndicator.de)
                 //Save in Data Set              
@@ -290,10 +312,18 @@ class Main extends Component {
                
             }
             else{
-                if(dataIndicator.indName.includes("Inpatient Days")){
-                    acomulativeValue.value=acomulativeValue.value+value
-                    if(acomulativeValue.metadata=={})
-                        acomulativeValue.metadata={de:dataIndicator.de, pe, co:dataIndicator.co, ou}
+                if(dataIndicator.indName!=undefined){
+                    if(dataIndicator.indName.includes("Inpatient Days")){
+                        acomulativeValue.value=(acomulativeValue.value*1)+(value*1)
+                        if(acomulativeValue.metadata==undefined){
+                             acomulativeValue.metadata=dataIndicator//{de:dataIndicator.de, pe, co:dataIndicator.co, ou}
+                             acomulativeValue.metadata["pe"]=pe
+                        }
+                           
+                    }
+                }
+                else{
+                    this.addResult("\n -->>> METADATA ERROR:  program Indicator "+pi +" OrgUnit "+ou+" check aggregateExportCategoryOptionCombo and programIndicatorGroups \n") 
                 }
                 kdv=kdv+1
                 this.saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,acomulativeValue); 
@@ -301,23 +331,29 @@ class Main extends Component {
         }
         else{ //Sum six indicator in one
             if(this.state.bulk==false){
-                var resp = await DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url,acomulativeValue.metadata.de,acomulativeValue.metadata.pe, acomulativeValue.metadata.co, acomulativeValue.metadata.ou, acomulativeValue.value);
-                if(resp.status==201){
-                    //this.addResult("\n--------------------------------------- \n")
-                    let dataImported = this.state.dataImported;
-                    dataIndicator["value"] = value;
-                    dataIndicator["period"] = pe;
-                    dataImported.push(dataIndicator)
-                    this.setState({ dataImported })
-                    this.setState({ Summaryimported: this.state.Summaryimported + 1 })
+                if(acomulativeValue.metadata!=undefined){
+                var resp = await DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url,acomulativeValue.metadata.de,acomulativeValue.metadata.pe, acomulativeValue.metadata.co, acomulativeValue.metadata.ouId, acomulativeValue.value);
+                    if(resp.status==201){
+                        //this.addResult("\n--------------------------------------- \n")
+                        let dataImported = this.state.dataImported;
+                        let dataIndicator={}
+                        dataIndicator=acomulativeValue.metadata
+                        dataIndicator["value"] = acomulativeValue.value;
+                        dataIndicator["period"] = acomulativeValue.metadata.pe;
+                        dataImported.push(dataIndicator)
+                        this.setState({ dataImported })
+                        this.setState({ Summaryimported: this.state.Summaryimported + 1 })
+                    }
+                    else{
+                        this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
+                        this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
+                    }
                 }
-                else{
-                    this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
-                    this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
-                }
+                
             }
             else{ 
-                this.generateJsonToBulkExport(acomulativeValue.metadata.de,acomulativeValue.metadata.pe, acomulativeValue.metadata.co, acomulativeValue.metadata.ou, acomulativeValue.value);
+                if(acomulativeValue.metadata!=undefined)
+                    this.generateJsonToBulkExport(acomulativeValue.metadata.de,acomulativeValue.metadata.pe, acomulativeValue.metadata.co, acomulativeValue.metadata.ouId, acomulativeValue.value);
             }
 
             this.finishExport(lastIndicatorGroup,DHISAppQuery);            
@@ -353,14 +389,14 @@ class Main extends Component {
                         if (dv.rows.length < 1) {
                             this.addResult("\n From:\n\n Indicator(s): " + indicators + " \n Period(s): " + periods + "\n Organisation Unit: " + ous)
                             this.addResult("\n -->>> There is no values to export  \n")
-                           // var emptyValue=this.generateEmptyValue(indicators, periods, ous)
+                            //var emptyValue=this.generateEmptyValue(indicators, periods, ous)
                             //console.log(">>Empty Value",emptyValue)
                             //this.saveDataValue(DHISAppQuery,emptyValue,0,lastIndicatorGroup)
                             this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
                             this.finishExport(lastIndicatorGroup,DHISAppQuery);
                         }
                         else{
-                            this.saveDataValue(DHISAppQuery,dv.rows,0,lastIndicatorGroup,{metadata:{},value:0})
+                            this.saveDataValue(DHISAppQuery,dv.rows,0,lastIndicatorGroup,{metadata:undefined,value:0})
                             this.finishExport(lastIndicatorGroup,DHISAppQuery);
                         }
                     }//empty rows
@@ -460,7 +496,10 @@ class Main extends Component {
             Summaryimported: 0,
             Summarynoimported: 0,
             Summaryerror: 0,
-            dataValues:[]
+            dataValues:[],
+            downloadValue:undefined,
+            running:true,
+            openSnackBar: false,
         })
 
         const DHISAppQuery = new DhisQuery(this.state.setting, this.props.d2)
@@ -517,10 +556,9 @@ class Main extends Component {
                 <Table>
                     <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                         <TableRow>
-                            <TableHeaderColumn>{d2.i18n.getTranslation("TBL_INDICATOR_ID")}</TableHeaderColumn>
-                            <TableHeaderColumn>{d2.i18n.getTranslation("TBL_INDICATOR_NAME")}</TableHeaderColumn>
-                            <TableHeaderColumn>{d2.i18n.getTranslation("TBL_OU_ID")}</TableHeaderColumn>
-                            <TableHeaderColumn>{d2.i18n.getTranslation("TBL_OU_NAME")}</TableHeaderColumn>
+                
+                            <TableHeaderColumn style={{width:'40%'}}>{d2.i18n.getTranslation("TBL_INDICATOR_NAME")}</TableHeaderColumn>
+                            <TableHeaderColumn style={{width:'20%'}}>{d2.i18n.getTranslation("TBL_OU_NAME")}</TableHeaderColumn>
                             <TableHeaderColumn>{d2.i18n.getTranslation("TBL_PERIOD")}</TableHeaderColumn>
                             <TableHeaderColumn>{d2.i18n.getTranslation("TBL_DE")}</TableHeaderColumn>
                             <TableHeaderColumn>{d2.i18n.getTranslation("TBL_CO")}</TableHeaderColumn>
@@ -531,12 +569,11 @@ class Main extends Component {
                     <TableBody displayRowCheckbox={false}>
                         {
                             this.state.dataImported.map(ind => {
-                                return (
+                                    return (
                                     <TableRow key={ind.inId + ind.ouId + ind.period}>
-                                        <TableRowColumn>{ind.inId}</TableRowColumn>
-                                        <TableRowColumn>{ind.indName}</TableRowColumn>
-                                        <TableRowColumn>{ind.ouId}</TableRowColumn>
-                                        <TableRowColumn>{ind.ouName}</TableRowColumn>
+                               
+                                        <TableRowColumn  style={{width:'40%'}} title={ind.inId}>{ind.indName}</TableRowColumn>
+                                        <TableRowColumn  style={{width:'20%'}} title={ind.ouId}>{ind.ouName}</TableRowColumn>
                                         <TableRowColumn>{ind.period}</TableRowColumn>
                                         <TableRowColumn>{ind.de}</TableRowColumn>
                                         <TableRowColumn>{ind.co}</TableRowColumn>
@@ -641,9 +678,16 @@ class Main extends Component {
 
         return (
             <div style={localStyle.Main}>
+                <Snackbar
+                open={this.state.openSnackBar}
+                message="Export has finished"
+                autoHideDuration={4000}
+                contentStyle={{fontSize:'large',fontWeight: 'bold', color:'red'}}
+
+                />
                 <div style={localStyle.setButton}>
                
-                <Paper style={{marginTop:10, width:230}}>
+                <Paper style={{marginTop:10, width:250}}>
                 <div style={{margin: 5}}>
                 
                 <Toggle
@@ -658,7 +702,18 @@ class Main extends Component {
                     onClick={() => this._run()}
                     keyboardFocused={true}
                     style={localStyle.btn}
+                    disabled={this.state.running}
                 />
+                    {this.state.bulk?
+                    <FlatButton
+                    href={this.state.downloadValue}
+                    download="data.json"
+                    target="_blank"
+                    secondary={true}
+                    disabled={this.state.downloadValue==undefined?true:false}
+                    icon={<CloudDownload/>}
+                    />:""}
+                    {this.state.running?<LinearProgress mode="indeterminate" />:""}
                 </Paper>
                  <div style={{marginLeft:'77%'}}>
                     <IconButton  tooltip={d2.i18n.getTranslation("BTN_SETTING")}  onClick={() => this.handleOpen(DHISAppQuery)}>
