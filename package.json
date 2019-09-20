@@ -67,7 +67,7 @@
     "test"
   ],
   "manifest.webapp": {
-    "name": "Aggregate Program Indicators",
+    "name": "Aggregate data for HMIS server",
     "icons": {
       "48": "icon.png"
     },
