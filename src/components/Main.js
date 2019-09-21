@@ -93,7 +93,7 @@ class Main extends Component {
             Summarynoimported: 0,
             Summaryerror: 0,
             dataValues:[],
-            bulk:false,
+            bulk:true,
             downloadValue:undefined,
             running:false
         }
@@ -268,7 +268,7 @@ class Main extends Component {
         dataValues.push({dataElement,period,categoryOptionCombo,orgUnit,value})
         this.setState({dataValues})
     }
-    async saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,acomulativeValue){
+    async saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,cumulativeValue){
         if(kdv<dv.length){
             let MetaValue=dv[kdv]
             let pi = MetaValue[0]
@@ -297,7 +297,7 @@ class Main extends Component {
                         this.setState({ dataImported })
                         this.setState({ Summaryimported: this.state.Summaryimported + 1 })
                         kdv=kdv+1
-                        this.saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,acomulativeValue);
+                        this.saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,cumulativeValue);
                     }
                     else{
                         this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
@@ -307,17 +307,18 @@ class Main extends Component {
                 else{
                     this.generateJsonToBulkExport(dataIndicator.de, pe, dataIndicator.co, ou, value);
                     kdv=kdv+1
-                    this.saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,acomulativeValue);
+                    this.saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,cumulativeValue);
                 }
                
             }
             else{
                 if(dataIndicator.indName!=undefined){
                     if(dataIndicator.indName.includes("Inpatient Days")){
-                        acomulativeValue.value=(acomulativeValue.value*1)+(value*1)
-                        if(acomulativeValue.metadata==undefined){
-                             acomulativeValue.metadata=dataIndicator//{de:dataIndicator.de, pe, co:dataIndicator.co, ou}
-                             acomulativeValue.metadata["pe"]=pe
+                        cumulativeValue.value=(cumulativeValue.value*1)+(value*1)
+                        cumulativeValue.values[pe+"_"+ou]=(cumulativeValue.values[pe+"_"+ou]==undefined?0:cumulativeValue.values[pe+"_"+ou]*1)+(value*1)
+                         if(cumulativeValue.metadata==undefined){
+                             cumulativeValue.metadata=dataIndicator//{de:dataIndicator.de, pe, co:dataIndicator.co, ou}
+                             cumulativeValue.metadata["pe"]=pe
                         }
                            
                     }
@@ -326,36 +327,46 @@ class Main extends Component {
                     this.addResult("\n -->>> METADATA ERROR:  program Indicator "+pi +" OrgUnit "+ou+" check aggregateExportCategoryOptionCombo and programIndicatorGroups \n") 
                 }
                 kdv=kdv+1
-                this.saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,acomulativeValue); 
+                this.saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,cumulativeValue); 
             }
         }
         else{ //Sum six indicator in one
             if(this.state.bulk==false){
-                if(acomulativeValue.metadata!=undefined){
-                var resp = await DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url,acomulativeValue.metadata.de,acomulativeValue.metadata.pe, acomulativeValue.metadata.co, acomulativeValue.metadata.ouId, acomulativeValue.value);
-                    if(resp.status==201){
-                        //this.addResult("\n--------------------------------------- \n")
-                        let dataImported = this.state.dataImported;
-                        let dataIndicator={}
-                        dataIndicator=acomulativeValue.metadata
-                        dataIndicator["value"] = acomulativeValue.value;
-                        dataIndicator["period"] = acomulativeValue.metadata.pe;
-                        dataImported.push(dataIndicator)
-                        this.setState({ dataImported })
-                        this.setState({ Summaryimported: this.state.Summaryimported + 1 })
-                    }
-                    else{
-                        this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
-                        this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
-                    }
+                if(cumulativeValue.metadata!=undefined){
+                    Object.keys(cumulativeValue.values).forEach(key=>{
+                        let pe_a=key.split("_")[0]
+                        let ou_a=key.split("_")[1]
+                        DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url,cumulativeValue.metadata.de,pe_a, cumulativeValue.metadata.co, ou_a, cumulativeValue.values[key]).then(resp=>{
+                            if(resp.status==201){
+                                //this.addResult("\n--------------------------------------- \n")
+                                let dataImported = this.state.dataImported;
+                                let dataIndicator={}
+                                dataIndicator=cumulativeValue.metadata
+                                dataIndicator["value"] = cumulativeValue.value;
+                                dataIndicator["period"] = cumulativeValue.metadata.pe;
+                                dataImported.push(dataIndicator)
+                                this.setState({ dataImported })
+                                this.setState({ Summaryimported: this.state.Summaryimported + 1 })
+                            }
+                            else{
+                                this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
+                                this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
+                            }
+                        })
+
+                    })
                 }
                 
             }
             else{ 
-                if(acomulativeValue.metadata!=undefined)
-                    this.generateJsonToBulkExport(acomulativeValue.metadata.de,acomulativeValue.metadata.pe, acomulativeValue.metadata.co, acomulativeValue.metadata.ouId, acomulativeValue.value);
+                if(cumulativeValue.metadata!=undefined){
+                    Object.keys(cumulativeValue.values).forEach(key=>{
+                        let pe_a=key.split("_")[0]
+                        let ou_a=key.split("_")[1]
+                        this.generateJsonToBulkExport(cumulativeValue.metadata.de,pe_a, cumulativeValue.metadata.co, ou_a, cumulativeValue.values[key]);
+                    })
+                }
             }
-
             this.finishExport(lastIndicatorGroup,DHISAppQuery);            
         }
         
@@ -396,7 +407,7 @@ class Main extends Component {
                             this.finishExport(lastIndicatorGroup,DHISAppQuery);
                         }
                         else{
-                            this.saveDataValue(DHISAppQuery,dv.rows,0,lastIndicatorGroup,{metadata:undefined,value:0})
+                            this.saveDataValue(DHISAppQuery,dv.rows,0,lastIndicatorGroup,{metadata:undefined,values:{},value:0})
                             this.finishExport(lastIndicatorGroup,DHISAppQuery);
                         }
                     }//empty rows
@@ -459,6 +470,10 @@ class Main extends Component {
     resetDate(DHISAppQuery) {
         DHISAppQuery.upLastDateExecuted({ date: this.state.startDate })
         this.addResult("\n Last updated execution date : " + this.state.startDate);
+        if(this.state.fixedDate==true)
+            this.addResult("\n Working with Fixed Date: ") 
+        //
+        this.handleSaveSetting(DHISAppQuery)
         this.setState({open: false })
     }
     async getSetting(DHISAppQuery) {
@@ -520,13 +535,18 @@ class Main extends Component {
         let pr = await this.getProgramIndicators(DHISAppQuery);
         this.sendSetOfIndicators(DHISAppQuery, pr, periods, ous,0);
         //update date
-        if (this.state.firstImport == true){
-            DHISAppQuery.setLastDateExecuted({ date: this.state.firstDate })
-            this.setState({startDate: this.state.firstDate})
+        if(this.state.fixedDate==false){
+            if (this.state.firstImport == true){
+                DHISAppQuery.setLastDateExecuted({ date: this.state.firstDate })
+                this.setState({startDate: this.state.firstDate})
+            }
+            else{
+                DHISAppQuery.upLastDateExecuted({ date: this.state.NewstartDate })
+                this.setState({startDate: this.state.NewstartDate})
+            }
         }
         else{
-            DHISAppQuery.upLastDateExecuted({ date: this.state.NewstartDate })
-            this.setState({startDate: this.state.NewstartDate})
+            this.addResult("\n Working with Fixed Date: ") 
         }
             
     }
@@ -567,10 +587,11 @@ class Main extends Component {
                         </TableRow>
                     </TableHeader>
                     <TableBody displayRowCheckbox={false}>
-                        {
-                            this.state.dataImported.map(ind => {
+                        
+                         {    
+                            this.state.dataImported.map((ind,index) => {
                                     return (
-                                    <TableRow key={ind.inId + ind.ouId + ind.period}>
+                                    <TableRow key={index+ ind.inId + ind.ouId + ind.period}>
                                
                                         <TableRowColumn  style={{width:'40%'}} title={ind.inId}>{ind.indName}</TableRowColumn>
                                         <TableRowColumn  style={{width:'20%'}} title={ind.ouId}>{ind.ouName}</TableRowColumn>
@@ -629,7 +650,13 @@ class Main extends Component {
                 onChange={(event, index, value) => this.handleSetValueForm("maxrecords", value, event, index)}
                 style={localStyle.textSetting}
             /><br />
-
+             <div style={{width:150,margin:20,marginLeft:10}}>
+             <Toggle
+                    label="Async Mode"
+                    defaultToggled={this.state.setting.async}
+                    onToggle={(event,value)=>this.handleSetValueForm("async", undefined, event,value)}
+                    />
+            </div>
             <Card style={localStyle.textSetting}>
                 <CardHeader
                     title={d2.i18n.getTranslation("ST_RESET_DATE_IMPORT_TITLE")}
@@ -638,13 +665,24 @@ class Main extends Component {
                     showExpandableButton={true}
                 />
                 <CardText expandable={true}>
+                <div style={{width:345,marginLeft:5}}>
+                        <Toggle
+                                label="Work with fixed date"
+                                defaultToggled={this.state.setting.fixedDate}
+                                onToggle={(event,value)=>this.handleSetValueForm("fixedDate", undefined, event,value)}
+                        />
+                </div>
                     <TextField
                         value={this.state.startDate}
                         style={{ width: '50%' }}
+                        disabled={!this.state.setting.fixedDate}
                         floatingLabelText={d2.i18n.getTranslation("ST_RESET_DATE_IMPORT")}
                         onChange={(event, index, value) => this.handleSetValueFormDate("startDate", value, event, index)}
 
-                    /><RaisedButton style={{ margin: 20 }} primary={true} label={d2.i18n.getTranslation("BTN_UPDATE")} onClick={() => this.resetDate(DHISAppQuery)} />
+                    />
+                    
+                    <RaisedButton disabled={!this.state.setting.fixedDate} style={{ margin: 20 }} primary={true} label={d2.i18n.getTranslation("BTN_UPDATE")} onClick={() => this.resetDate(DHISAppQuery)} />
+                   
                 </CardText>
 
             </Card>
@@ -682,7 +720,7 @@ class Main extends Component {
                 open={this.state.openSnackBar}
                 message="Export has finished"
                 autoHideDuration={4000}
-                contentStyle={{fontSize:'large',fontWeight: 'bold', color:'red'}}
+                contentStyle={{fontSize:'large',fontWeight: 'bold'}}
 
                 />
                 <div style={localStyle.setButton}>
@@ -691,13 +729,13 @@ class Main extends Component {
                 <div style={{margin: 5}}>
                 
                 <Toggle
-                    label="change running mode"
-                    defaultToggled={false}
+                    label={this.state.bulk?"Bulk":"One by one"}
+                    defaultToggled={this.state.bulk}
                     onToggle={(event,value)=>{this.setState({bulk:value})}}
                     />
                 </div>
                 <RaisedButton
-                    label={this.state.bulk?"Run Bulk Mode":"Run one by one mode"}
+                    label={"Aggregate Data"}
                     primary={true}
                     onClick={() => this._run()}
                     keyboardFocused={true}

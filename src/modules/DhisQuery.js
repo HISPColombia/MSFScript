@@ -106,7 +106,8 @@ module.exports = class DhisQuery {
     return await this.ResourceExternalSelected(url,"POST",{})
     }
     async setDataValue_ExternalServerBulk(urlBase,payload){
-        let url = urlBase+"dataValueSets?async=true"
+        const st=this.setting
+        let url = urlBase+"dataValueSets?async="+st.async
         return await this.ResourceExternalSelectedBulk(url,"POST",payload)
         }
    async setLastDateExecuted(date){
