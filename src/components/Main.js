@@ -228,6 +228,10 @@ class Main extends Component {
     }
     async  getProgramIndicators(DHISAppQuery) {
         const records = await DHISAppQuery.getProgramIndicators();
+        const indicators = await DHISAppQuery.getIndicators()
+        const Pindicators=records.programIndicators.concat(indicators)
+        records.programIndicators=Pindicators
+       
         var listIndicator = [], kin = 0;
         this.setState({ rawIndicators: records })
         records.programIndicators.forEach((ind, index) => {
@@ -312,61 +316,61 @@ class Main extends Component {
                
             }
             else{
-                if(dataIndicator.indName!=undefined){
-                    if(dataIndicator.indName.includes("Inpatient Days")){
-                        cumulativeValue.value=(cumulativeValue.value*1)+(value*1)
-                        cumulativeValue.values[pe+"_"+ou]=(cumulativeValue.values[pe+"_"+ou]==undefined?0:cumulativeValue.values[pe+"_"+ou]*1)+(value*1)
-                         if(cumulativeValue.metadata==undefined){
-                             cumulativeValue.metadata=dataIndicator//{de:dataIndicator.de, pe, co:dataIndicator.co, ou}
-                             cumulativeValue.metadata["pe"]=pe
-                        }
+                // if(dataIndicator.indName!=undefined){
+                //     if(dataIndicator.indName.includes("Inpatient Days")){
+                //         cumulativeValue.value=(cumulativeValue.value*1)+(value*1)
+                //         cumulativeValue.values[pe+"_"+ou]=(cumulativeValue.values[pe+"_"+ou]==undefined?0:cumulativeValue.values[pe+"_"+ou]*1)+(value*1)
+                //          if(cumulativeValue.metadata==undefined){
+                //              cumulativeValue.metadata=dataIndicator//{de:dataIndicator.de, pe, co:dataIndicator.co, ou}
+                //              cumulativeValue.metadata["pe"]=pe
+                //         }
                            
-                    }
-                }
-                else{
+                //     }
+                // }
+                // else{
                     this.addResult("\n -->>> METADATA ERROR:  program Indicator "+pi +" OrgUnit "+ou+" check aggregateExportCategoryOptionCombo and programIndicatorGroups \n") 
-                }
+                //}
                 kdv=kdv+1
                 this.saveDataValue(DHISAppQuery,dv,kdv,lastIndicatorGroup,cumulativeValue); 
             }
         }
         else{ //Sum six indicator in one
-            if(this.state.bulk==false){
-                if(cumulativeValue.metadata!=undefined){
-                    Object.keys(cumulativeValue.values).forEach(key=>{
-                        let pe_a=key.split("_")[0]
-                        let ou_a=key.split("_")[1]
-                        DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url,cumulativeValue.metadata.de,pe_a, cumulativeValue.metadata.co, ou_a, cumulativeValue.values[key]).then(resp=>{
-                            if(resp.status==201){
-                                //this.addResult("\n--------------------------------------- \n")
-                                let dataImported = this.state.dataImported;
-                                let dataIndicator={}
-                                dataIndicator=cumulativeValue.metadata
-                                dataIndicator["value"] = cumulativeValue.value;
-                                dataIndicator["period"] = cumulativeValue.metadata.pe;
-                                dataImported.push(dataIndicator)
-                                this.setState({ dataImported })
-                                this.setState({ Summaryimported: this.state.Summaryimported + 1 })
-                            }
-                            else{
-                                this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
-                                this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
-                            }
-                        })
+            // if(this.state.bulk==false){
+            //     if(cumulativeValue.metadata!=undefined){
+            //         Object.keys(cumulativeValue.values).forEach(key=>{
+            //             let pe_a=key.split("_")[0]
+            //             let ou_a=key.split("_")[1]
+            //             DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url,cumulativeValue.metadata.de,pe_a, cumulativeValue.metadata.co, ou_a, cumulativeValue.values[key]).then(resp=>{
+            //                 if(resp.status==201){
+            //                     //this.addResult("\n--------------------------------------- \n")
+            //                     let dataImported = this.state.dataImported;
+            //                     let dataIndicator={}
+            //                     dataIndicator=cumulativeValue.metadata
+            //                     dataIndicator["value"] = cumulativeValue.value;
+            //                     dataIndicator["period"] = cumulativeValue.metadata.pe;
+            //                     dataImported.push(dataIndicator)
+            //                     this.setState({ dataImported })
+            //                     this.setState({ Summaryimported: this.state.Summaryimported + 1 })
+            //                 }
+            //                 else{
+            //                     this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
+            //                     this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
+            //                 }
+            //             })
 
-                    })
-                }
+            //         })
+            //     }
                 
-            }
-            else{ 
-                if(cumulativeValue.metadata!=undefined){
-                    Object.keys(cumulativeValue.values).forEach(key=>{
-                        let pe_a=key.split("_")[0]
-                        let ou_a=key.split("_")[1]
-                        this.generateJsonToBulkExport(cumulativeValue.metadata.de,pe_a, cumulativeValue.metadata.co, ou_a, cumulativeValue.values[key]);
-                    })
-                }
-            }
+            // }
+            // else{ 
+            //     if(cumulativeValue.metadata!=undefined){
+            //         Object.keys(cumulativeValue.values).forEach(key=>{
+            //             let pe_a=key.split("_")[0]
+            //             let ou_a=key.split("_")[1]
+            //             this.generateJsonToBulkExport(cumulativeValue.metadata.de,pe_a, cumulativeValue.metadata.co, ou_a, cumulativeValue.values[key]);
+            //         })
+            //     }
+            // }
             this.finishExport(lastIndicatorGroup,DHISAppQuery);            
         }
         
@@ -623,7 +627,14 @@ class Main extends Component {
                 floatingLabelText={d2.i18n.getTranslation("ST_PROGRAM_STAGEID")}
                 onChange={(event, index, value) => this.handleSetValueForm("programstageid", value, event, index)}
                 style={localStyle.textSetting}
-            /><br />
+            />
+            <TextField
+                value={this.state.setting.indicatorgroup}
+                floatingLabelText={d2.i18n.getTranslation("ST_INDICATORGROUP")}
+                onChange={(event, index, value) => this.handleSetValueForm("indicatorgroup", value, event, index)}
+                style={localStyle.textSetting}
+            />
+            <br />
 
             <TextField
                 value={this.state.setting.url}

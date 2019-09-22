@@ -76,9 +76,21 @@ module.exports = class DhisQuery {
     //Method to get program indicators
      async getProgramIndicators(){
         const st=this.setting
-       let url="programs/"+st.programid+"/programIndicators?fields=id,name,programIndicatorGroups[id,code],aggregateExportCategoryOptionCombo"
+       let url="programs/"+st.programid+"/programIndicators?fields=id,name,programIndicatorGroups[code],aggregateExportCategoryOptionCombo"
        return await this.getResourceSelected(url)
    }
+   //Method to get program indicators
+   async getIndicators(){
+    const st=this.setting
+    let url="indicatorGroups/"+st.indicatorgroup+"?fields=indicators~rename(programIndicators)[id,name,indicatorGroups[attributeValues~rename(programIndicatorGroups)[value~rename(code)]],aggregateExportCategoryOptionCombo]"
+    const indicators= await this.getResourceSelected(url)
+    return indicators.programIndicators.map(i=>{
+        var pig=i.indicatorGroups[0].programIndicatorGroups
+        delete i["indicatorGroups"]
+        i["programIndicatorGroups"]=pig
+        return i
+    })
+    }
      //Method to query organisation units associated to program
      async getOrganisationUnits(){
         const st=this.setting
