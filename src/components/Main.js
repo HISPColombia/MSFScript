@@ -282,7 +282,7 @@ class Main extends Component {
             value = value.split(".")[0];
             //validate match, If return ou id then there is match, else there is no match.
             let dataIndicator = this.validateMatch(pi, ou)
-            if (dataIndicator.ouId != undefined && !dataIndicator.indName.includes("Inpatient Days")) {
+            if (dataIndicator.ouId != undefined) {
                 this.addResult("\n From:\n\n Indicator: " + dataIndicator.inId + " \n Period: " + pe + "\n Organisation Unit: " + dataIndicator.ouId + " \n Value: " + value)
                 this.addResult("\n\n To:\n\n Category: " + dataIndicator.co + "\n Data Element: " + dataIndicator.de)
                 //Save in Data Set              
@@ -309,6 +309,14 @@ class Main extends Component {
                     }
                 }
                 else {
+
+                    //result
+                    let dataImported = this.state.dataImported;
+                    dataIndicator["value"] = value;
+                    dataIndicator["period"] = pe;
+                    dataImported.push(dataIndicator)
+                    this.setState({ dataImported })
+                    //
                     this.generateJsonToBulkExport(dataIndicator.de, pe, dataIndicator.co, ou, value);
                     kdv = kdv + 1
                     this.saveDataValue(DHISAppQuery, dv, kdv, lastIndicatorGroup, cumulativeValue);
