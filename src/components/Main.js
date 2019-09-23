@@ -461,7 +461,13 @@ class Main extends Component {
         let firstSetting = false;
         if (Object.keys(setting).length == 0)
             firstSetting = true;
-        this.setState({ setting, firstSetting });
+        if(setting==""){
+            this.setState({ setting:{}, firstSetting:false });
+        }
+        else{
+            this.setState({ setting, firstSetting });
+        }
+ 
         //
     }
     sendSetOfIndicators(DHISAppQuery, pr, periods, ous, kind) {

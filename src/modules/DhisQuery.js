@@ -94,10 +94,11 @@ module.exports = class DhisQuery {
    //Method to get program indicators
    async getIndicators(){
     const st=this.setting
-    let url="indicators?filter=indicatorGroups.id:in:["+st.indicatorgroup+"]&fields=id,name,aggregateExportCategoryOptionCombo,indicatorGroups~rename(programIndicatorGroups)[attributeValues[value~rename(code)]]&paging=false"
+    let url="indicators?filter=indicatorGroups.id:in:["+st.indicatorgroup+"]&fields=id,name,aggregateExportCategoryOptionCombo,indicatorGroups[attributeValues[value~rename(code)]]&paging=false"
     const resp= await this.getResourceSelected(url)
     return resp.indicators.map(i=>{
-        var pig=i.programIndicatorGroups[0].attributeValues
+        var pig=i.indicatorGroups[0].attributeValues
+        delete i.indicatorGroups
         i["programIndicatorGroups"]=pig
         return i
     })
