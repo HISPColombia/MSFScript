@@ -92,14 +92,11 @@ class Main extends Component {
             dataImported: [],
             Summaryimported: 0,
             Summarynoimported: 0,
-            SummaryUpdated:0,
-            SummaryIgnored:0,
             Summaryerror: 0,
             dataValues: [],
             bulk: true,
             downloadValue: undefined,
-            running: false,
-            send:false
+            running: false
         }
     }
 
@@ -141,6 +138,27 @@ class Main extends Component {
         const ind = this.state.rawIndicators.programIndicators.find(rawIndicator => {
             return rawIndicator.id == indicator;
         })
+        // if(ind.name.includes("Inpatient Days")){
+        //     if (ind.aggregateExportCategoryOptionCombo!=undefined)
+        //         return ({
+        //             ouId: undefined,
+        //             ouName: undefined,
+        //             inId: ind.id,
+        //             indName: ind.name,
+        //             de: ind.aggregateExportCategoryOptionCombo.split(".")[0],
+        //             co: ind.aggregateExportCategoryOptionCombo.split(".")[1]
+        //         })
+        //     else
+        //         return ({
+        //             ouId: undefined,
+        //             ouName: undefined,
+        //             inId: ind.id,
+        //             indName: ind.name,
+        //             de: undefined,
+        //             co: undefined
+        //         })
+
+        // }
         if (ind.programIndicatorGroups.length == 0) {
             this.addResult("\n\n Warning, indicator " + indicator + " without programIndicatorGroups")
             return { ouId: undefined }
@@ -234,35 +252,18 @@ class Main extends Component {
         })
         return listIndicator;
     }
-    async getSumaryBulkExport(DHISAppQuery,TaskUid){
-        var resp = await DHISAppQuery.getTask_ExternalServerBulk(this.state.setting.url,TaskUid);
-        if (resp[0].completed==true){
-            var resp = await DHISAppQuery.getSummary_ExternalServerBulk(this.state.setting.url,TaskUid);
-            this.setState({Summaryimported:resp.importCount.imported,SummaryUpdated:resp.importCount.updated,SummaryIgnored:resp.importCount.ignored})
-            this.setState({ running: false, openSnackBar: true })
-            this.addResult("\n\n Export has finished ")
-        }
-        else{
-            setTimeout(()=>this.getSumaryBulkExport(DHISAppQuery,TaskUid),1000)
-        }
-    }
     async finishExport(lastIndicatorGroup, DHISAppQuery) {
         if (lastIndicatorGroup == true) {
-            if (this.state.bulk == true && this.state.send==false) {
-                this.setState({ send: true })
+            if (this.state.bulk == true) {
                 var resp = await DHISAppQuery.setDataValue_ExternalServerBulk(this.state.setting.url, JSON.stringify({ dataValues: this.state.dataValues }));
-               
+                console.log(resp)
                 //generate json to download
                 var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ dataValues: this.state.dataValues }));
                 this.setState({ downloadValue: dataStr })
-                //get Summary
-                this.getSumaryBulkExport(DHISAppQuery,resp.response.id)
             }
-            else{
-                this.setState({ running: false, openSnackBar: true })
-                this.addResult("\n\n Export has finished ")
-            }
+            this.setState({ running: false, openSnackBar: true })
 
+            this.addResult("\n\n Export has finished ")
 
         }
 
@@ -316,14 +317,61 @@ class Main extends Component {
 
             }
             else {
-        
-                this.addResult("\n -->>> METADATA ERROR:  program Indicator " + pi + " OrgUnit " + ou + " check aggregateExportCategoryOptionCombo and programIndicatorGroups \n")
+                // if(dataIndicator.indName!=undefined){
+                //     if(dataIndicator.indName.includes("Inpatient Days")){
+                //         cumulativeValue.value=(cumulativeValue.value*1)+(value*1)
+                //         cumulativeValue.values[pe+"_"+ou]=(cumulativeValue.values[pe+"_"+ou]==undefined?0:cumulativeValue.values[pe+"_"+ou]*1)+(value*1)
+                //          if(cumulativeValue.metadata==undefined){
+                //              cumulativeValue.metadata=dataIndicator//{de:dataIndicator.de, pe, co:dataIndicator.co, ou}
+                //              cumulativeValue.metadata["pe"]=pe
+                //         }
 
+                //     }
+                // }
+                // else{
+                this.addResult("\n -->>> METADATA ERROR:  program Indicator " + pi + " OrgUnit " + ou + " check aggregateExportCategoryOptionCombo and programIndicatorGroups \n")
+                //}
                 kdv = kdv + 1
                 this.saveDataValue(DHISAppQuery, dv, kdv, lastIndicatorGroup, cumulativeValue);
             }
         }
-        else { 
+        else { //Sum six indicator in one
+            // if(this.state.bulk==false){
+            //     if(cumulativeValue.metadata!=undefined){
+            //         Object.keys(cumulativeValue.values).forEach(key=>{
+            //             let pe_a=key.split("_")[0]
+            //             let ou_a=key.split("_")[1]
+            //             DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url,cumulativeValue.metadata.de,pe_a, cumulativeValue.metadata.co, ou_a, cumulativeValue.values[key]).then(resp=>{
+            //                 if(resp.status==201){
+            //                     //this.addResult("\n--------------------------------------- \n")
+            //                     let dataImported = this.state.dataImported;
+            //                     let dataIndicator={}
+            //                     dataIndicator=cumulativeValue.metadata
+            //                     dataIndicator["value"] = cumulativeValue.value;
+            //                     dataIndicator["period"] = cumulativeValue.metadata.pe;
+            //                     dataImported.push(dataIndicator)
+            //                     this.setState({ dataImported })
+            //                     this.setState({ Summaryimported: this.state.Summaryimported + 1 })
+            //                 }
+            //                 else{
+            //                     this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
+            //                     this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
+            //                 }
+            //             })
+
+            //         })
+            //     }
+
+            // }
+            // else{ 
+            //     if(cumulativeValue.metadata!=undefined){
+            //         Object.keys(cumulativeValue.values).forEach(key=>{
+            //             let pe_a=key.split("_")[0]
+            //             let ou_a=key.split("_")[1]
+            //             this.generateJsonToBulkExport(cumulativeValue.metadata.de,pe_a, cumulativeValue.metadata.co, ou_a, cumulativeValue.values[key]);
+            //         })
+            //     }
+            // }
             this.finishExport(lastIndicatorGroup, DHISAppQuery);
         }
 
@@ -366,10 +414,10 @@ class Main extends Component {
                 this.addResult("\n--------------------------------------- \n")
                 if (dv != undefined) {
                     if (dv.rows != undefined) {
-                        if(this.state.setting.zerovalue==true){
-                            var emptyValue = this.generateEmptyValue(indicators, periods, ous, dv.rows)
-                            dv.rows = emptyValue
-                        }
+
+                       // var emptyValue = this.generateEmptyValue(indicators, periods, ous, dv.rows)
+                       // dv.rows = emptyValue
+
                         if (dv.rows.length < 1) {
                             this.addResult("\n From:\n\n Indicator(s): " + indicators + " \n Period(s): " + periods + "\n Organisation Unit: " + ous)
                             this.addResult("\n -->>> There is no values to export  \n")
@@ -480,13 +528,10 @@ class Main extends Component {
             dataImported: [],
             Summaryimported: 0,
             Summarynoimported: 0,
-            SummaryUpdated:0,
-            SummaryIgnored:0,
             Summaryerror: 0,
             dataValues: [],
             downloadValue: undefined,
             running: true,
-            send:false,
             openSnackBar: false,
         })
 
@@ -536,14 +581,6 @@ class Main extends Component {
                     <Chip style={localStyle.chip}>
                         <Avatar size={32}>{this.state.Summaryimported}</Avatar>
                         Imported
-                    </Chip>
-                    <Chip style={localStyle.chip}>
-                        <Avatar size={32}>{this.state.SummaryUpdated}</Avatar>
-                        Updated
-                    </Chip>
-                    <Chip style={localStyle.chip}>
-                        <Avatar size={32}>{this.state.SummaryIgnored}</Avatar>
-                        Ignored
                     </Chip>
                     <Chip style={localStyle.chip}>
                         <Avatar size={32}>{this.state.Summarynoimported}</Avatar>
@@ -638,18 +675,11 @@ class Main extends Component {
                 onChange={(event, index, value) => this.handleSetValueForm("maxrecords", value, event, index)}
                 style={localStyle.textSetting}
             /><br />
-            <div style={{ width: 250, margin: 20, marginLeft: 10 }}>
+            <div style={{ width: 150, margin: 20, marginLeft: 10 }}>
                 <Toggle
                     label="Async Mode"
                     defaultToggled={this.state.setting.async}
                     onToggle={(event, value) => this.handleSetValueForm("async", undefined, event, value)}
-                />
-            </div>
-            <div style={{ width: 250, margin: 20, marginLeft: 10 }}>
-                <Toggle
-                    label="Save empty values as zero"
-                    defaultToggled={this.state.setting.zerovalue}
-                    onToggle={(event, value) => this.handleSetValueForm("zerovalue", undefined, event, value)}
                 />
             </div>
             <Card style={localStyle.textSetting}>
@@ -721,6 +751,14 @@ class Main extends Component {
                 <div style={localStyle.setButton}>
 
                     <Paper style={{ marginTop: 10, width: 250 }}>
+                        <div style={{ margin: 5 }}>
+
+                            <Toggle
+                                label={this.state.bulk ? "Bulk" : "One by one"}
+                                defaultToggled={this.state.bulk}
+                                onToggle={(event, value) => { this.setState({ bulk: value }) }}
+                            />
+                        </div>
                         <RaisedButton
                             label={"Aggregate Data"}
                             primary={true}
@@ -729,7 +767,7 @@ class Main extends Component {
                             style={localStyle.btn}
                             disabled={this.state.running}
                         />
-                         {this.state.bulk ?
+                        {this.state.bulk ?
                             <FlatButton
                                 href={this.state.downloadValue}
                                 download="data.json"
@@ -738,17 +776,6 @@ class Main extends Component {
                                 disabled={this.state.downloadValue == undefined ? true : false}
                                 icon={<CloudDownload />}
                             /> : ""}
-                        <div style={{ margin: 5 }}>
-
-                            <Toggle
-                                label={this.state.bulk ? "Bulk" : "One by one"}
-                                defaultToggled={this.state.bulk}
-                                onToggle={(event, value) => { this.setState({ bulk: value }) }}
-                                labelPosition="right"
-                                disabled={this.state.running}
-                            />
-                            </div>
-
                         {this.state.running ? <LinearProgress mode="indeterminate" /> : ""}
                     </Paper>
                     <div style={{ marginLeft: '77%' }}>
@@ -756,7 +783,12 @@ class Main extends Component {
                             <Settings />
                         </IconButton>
                     </div>
-                   </div>
+                    {/* <RaisedButton
+                    label={d2.i18n.getTranslation("BTN_DATA")}
+                    onClick={() => this.handleOpenViewData()}
+                    style={localStyle.btn}
+                /> */}
+                </div>
                 {this.renderDatainTable()}
                 <Paper style={localStyle.Console} zDepth={1}>
                     <pre>{this.state.result}</pre>
@@ -773,6 +805,16 @@ class Main extends Component {
                 >
                     {this.renderSetting(DHISAppQuery)}
                 </Dialog>
+                {/* <Dialog
+                    title={d2.i18n.getTranslation("ST_TITLE_DATA")}
+                    actions={actionsViewData}
+                    modal={false}
+                    open={this.state.openvdata}
+                    onRequestClose={() => this.handleCloseViewData()}
+                    contentStyle={localStyle.DialogViewData}
+                >
+                    {this.renderDatainTable()}
+                </Dialog> */}
 
             </div>
         )

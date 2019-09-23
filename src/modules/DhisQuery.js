@@ -31,6 +31,18 @@ module.exports = class DhisQuery {
              }).then(response => response.json())
              .catch(error => console.error('Error:', error));
      }
+     async GetResourceExternalSelected(url,method){
+        const st=this.setting
+        let headers = new Headers(); 
+        headers.append('Content-Type', 'application/json');
+        headers.set('Authorization', 'Basic ' + Buffer.from(st.user + ":" + st.password).toString('base64'));
+        return fetch(url, 
+             {
+             method,
+             headers
+             }).then(response => response.json())
+             .catch(error => console.error('Error:', error));
+     }
 
 
     async getResourceSelected(resource) {
@@ -121,6 +133,16 @@ module.exports = class DhisQuery {
         const st=this.setting
         let url = urlBase+"dataValueSets?async="+st.async
         return await this.ResourceExternalSelectedBulk(url,"POST",payload)
+        }
+    async getSummary_ExternalServerBulk(urlBase,uid){
+        const st=this.setting
+        let url = urlBase+"system/taskSummaries/DATAVALUE_IMPORT/"+uid
+        return await this.GetResourceExternalSelected(url,"GET")
+        }
+    async getTask_ExternalServerBulk(urlBase,uid){
+        const st=this.setting
+        let url = urlBase+"system/tasks/DATAVALUE_IMPORT/"+uid
+        return await this.GetResourceExternalSelected(url,"GET")
         }
    async setLastDateExecuted(date){
     let url = "dataStore/AppAggregateIndicators/LastDateExecuted"
