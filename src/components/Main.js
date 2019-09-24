@@ -507,7 +507,14 @@ class Main extends Component {
         const DHISAppQuery = new DhisQuery(this.state.setting, this.props.d2)
         await this.getSetting(DHISAppQuery);
         await this.geTandShowLastUpdate(DHISAppQuery);
-        ////
+        
+        ////Delete using SQL View
+        if(this.state.setting.deletedatavalues==true){
+            const resp= await DHISAppQuery.DeleteValueUsingSQlView(this.state.setting.url,"ol50zCevR3K");
+            this.addResult("\n Data values deleted")
+            console.log(resp)
+        }
+      
         this.setState({ dataImported: [] })
         /////
         var periods = await this.getWeeks(DHISAppQuery)
@@ -522,7 +529,7 @@ class Main extends Component {
         let pr = await this.getProgramIndicators(DHISAppQuery);
         this.sendSetOfIndicators(DHISAppQuery, pr, periods, ous, 0);
         //update date
-        if (this.state.fixedDate == false) {
+        if (this.state.fixedDate != true) {
             if (this.state.firstImport == true) {
                 DHISAppQuery.setLastDateExecuted({ date: this.state.firstDate })
                 this.setState({ startDate: this.state.firstDate })
@@ -589,7 +596,7 @@ class Main extends Component {
                                     <TableRow key={index + ind.inId + ind.ouId + ind.period}>
 
                                         <TableRowColumn style={{ width: '40%' }} title={ind.inId}>{ind.indName}</TableRowColumn>
-                                        <TableRowColumn style={{ width: '20%' }} title={ind.ouId}>{ind.ouName}</TableRowColumn>
+                                        <TableRowColumn style={{ width: '20%' }} title={ind.ouId}>{ind.ouName} ({ind.ouId})</TableRowColumn>
                                         <TableRowColumn>{ind.period}</TableRowColumn>
                                         <TableRowColumn>{ind.de}</TableRowColumn>
                                         <TableRowColumn>{ind.co}</TableRowColumn>
@@ -664,6 +671,13 @@ class Main extends Component {
                     label="Save empty values as zero"
                     defaultToggled={this.state.setting.zerovalue}
                     onToggle={(event, value) => this.handleSetValueForm("zerovalue", undefined, event, value)}
+                />
+            </div>
+            <div style={{ width: 250, margin: 20, marginLeft: 10 }}>
+                <Toggle
+                    label="Delete datavalues before to export"
+                    defaultToggled={this.state.setting.deletedatavalues}
+                    onToggle={(event, value) => this.handleSetValueForm("deletedatavalues", undefined, event, value)}
                 />
             </div>
             <Card style={localStyle.textSetting}>
