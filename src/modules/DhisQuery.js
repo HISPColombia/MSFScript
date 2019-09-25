@@ -144,10 +144,10 @@ module.exports = class DhisQuery {
         let url = urlBase+"system/tasks/DATAVALUE_IMPORT/"+uid
         return await this.GetResourceExternalSelected(url,"GET")
         }
-    async DeleteValueUsingSQlView(urlBase,uid){
+    async DeleteValueUsingSQlView(urlBase,uid,method,type){
         const st=this.setting
-        let url = urlBase+"sqlViews/"+uid+"/execute"
-        return await this.GetResourceExternalSelected(url,"POST")
+        let url = urlBase+"sqlViews/"+uid+"/"+type
+        return await this.GetResourceExternalSelected(url,method)
         }
    async setLastDateExecuted(date){
     let url = "dataStore/AppAggregateIndicators/LastDateExecuted"

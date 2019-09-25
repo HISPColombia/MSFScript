@@ -448,7 +448,7 @@ class Main extends Component {
     resetDate(DHISAppQuery) {
         DHISAppQuery.upLastDateExecuted({ date: this.state.startDate })
         this.addResult("\n Last updated execution date : " + this.state.startDate);
-        if (this.state.fixedDate == true)
+        if (this.state.setting.fixedDate == true)
             this.addResult("\n Working with Fixed Date: ")
         //
         this.handleSaveSetting(DHISAppQuery)
@@ -510,9 +510,11 @@ class Main extends Component {
         
         ////Delete using SQL View
         if(this.state.setting.deletedatavalues==true){
-            const resp= await DHISAppQuery.DeleteValueUsingSQlView(this.state.setting.url,"ol50zCevR3K");
+            const respExecute= await DHISAppQuery.DeleteValueUsingSQlView(this.state.setting.url,"ol50zCevR3K","POST","execute");
+            const respData= await DHISAppQuery.DeleteValueUsingSQlView(this.state.setting.url,"ol50zCevR3K","GET","data");
+            
             this.addResult("\n Data values deleted")
-            console.log(resp)
+            console.log(respExecute,respData)
         }
       
         this.setState({ dataImported: [] })
@@ -520,6 +522,7 @@ class Main extends Component {
         var periods = await this.getWeeks(DHISAppQuery)
         if (periods == "withoutRecords") {
             this.addResult("\n   . There is no event record in this period")
+            this.setState({running:false})
             return 0
         }
         this.addResult("\n--------------------------------------- \n")
@@ -529,7 +532,7 @@ class Main extends Component {
         let pr = await this.getProgramIndicators(DHISAppQuery);
         this.sendSetOfIndicators(DHISAppQuery, pr, periods, ous, 0);
         //update date
-        if (this.state.fixedDate != true) {
+        if (this.state.setting.fixedDate != true) {
             if (this.state.firstImport == true) {
                 DHISAppQuery.setLastDateExecuted({ date: this.state.firstDate })
                 this.setState({ startDate: this.state.firstDate })
@@ -767,7 +770,7 @@ class Main extends Component {
                                 icon={<CloudDownload />}
                             /> : ""}
                         <div style={{ margin: 5 }}>
-
+                  
                             <Toggle
                                 label={this.state.bulk ? "Bulk" : "One by one"}
                                 defaultToggled={this.state.bulk}
@@ -775,7 +778,7 @@ class Main extends Component {
                                 labelPosition="right"
                                 disabled={this.state.running}
                             />
-                            </div>
+                        </div>
 
                         {this.state.running ? <LinearProgress mode="indeterminate" /> : ""}
                     </Paper>
