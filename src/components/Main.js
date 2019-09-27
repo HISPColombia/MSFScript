@@ -248,7 +248,7 @@ class Main extends Component {
     }
     async finishExport(lastIndicatorGroup, DHISAppQuery) {
         if (lastIndicatorGroup == true) {
-            if (this.state.bulk == true && this.state.send==false) {
+            if (this.state.setting.bulk == true && this.state.send==false) {
                 this.setState({ send: true })
                 var resp = await DHISAppQuery.setDataValue_ExternalServerBulk(this.state.setting.url, JSON.stringify({ dataValues: this.state.dataValues }));
                
@@ -290,7 +290,7 @@ class Main extends Component {
                 //Local server
                 //DHISAppQuery.setDataValue(dataIndicator.de,pe,dataIndicator.co,ou,value)
                 //External Server
-                if (this.state.bulk == false) {
+                if (this.state.setting.bulk == false) {
                     var resp = await DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url, dataIndicator.de, pe, dataIndicator.co, ou, value);
                     if (resp.status == 201) {
                         //this.addResult("\n--------------------------------------- \n")
@@ -319,8 +319,12 @@ class Main extends Component {
                     //
                     this.generateJsonToBulkExport(dataIndicator.de, pe, dataIndicator.co, ou, value);
                     kdv = kdv + 1
-                    this.saveDataValue(DHISAppQuery, dv, kdv, lastIndicatorGroup, cumulativeValue);
-                }
+                    if(this.state.setting.timeBulk)
+                        setTimeout(()=>this.saveDataValue(DHISAppQuery, dv, kdv, lastIndicatorGroup, cumulativeValue),this.state.setting.timeBulk*1);
+                    else
+                        setTimeout(()=>this.saveDataValue(DHISAppQuery, dv, kdv, lastIndicatorGroup, cumulativeValue),1000);
+
+                    }
 
             }
             else {
@@ -675,6 +679,22 @@ class Main extends Component {
                 onChange={(event, index, value) => this.handleSetValueForm("maxrecords", value, event, index)}
                 style={localStyle.textSetting}
             /><br />
+
+            <div style={{ width: 250, margin: 20, marginLeft: 10 }}>
+                <Toggle
+                    label={this.state.setting.bulk ? "Bulk" : "One by one"}
+                    defaultToggled={this.state.setting.bulk}
+                    onToggle={(event, value) => this.handleSetValueForm("bulk", undefined, event, value)}
+                    disabled={this.state.running}
+                />
+            </div>
+            <TextField
+                value={this.state.setting.timeBulk==undefined?1000:this.state.setting.timeBulk}
+                floatingLabelText={"timeout bulk mode (milliseconds)"}
+                onChange={(event, index, value) => this.handleSetValueForm("timeBulk", value, event, index)}
+                style={localStyle.textSetting}
+                disabled={!this.state.setting.bulk}
+            /><br />
             <div style={{ width: 250, margin: 20, marginLeft: 10 }}>
                 <Toggle
                     label="Async Mode"
@@ -687,6 +707,7 @@ class Main extends Component {
                     label="Save empty values as zero"
                     defaultToggled={this.state.setting.zerovalue}
                     onToggle={(event, value) => this.handleSetValueForm("zerovalue", undefined, event, value)}
+                    disabled={true}
                 />
             </div>
             <div style={{ width: 250, margin: 20, marginLeft: 10 }}>
@@ -772,8 +793,9 @@ class Main extends Component {
                             keyboardFocused={true}
                             style={localStyle.btn}
                             disabled={this.state.running}
+                            title={this.state.setting.bulk ? "Bulk" : "One by one"}
                         />
-                         {this.state.bulk ?
+                         {this.state.setting.bulk ?
                             <FlatButton
                                 href={this.state.downloadValue}
                                 download="data.json"
@@ -782,17 +804,6 @@ class Main extends Component {
                                 disabled={this.state.downloadValue == undefined ? true : false}
                                 icon={<CloudDownload />}
                             /> : ""}
-                        <div style={{ margin: 5 }}>
-                  
-                            <Toggle
-                                label={this.state.bulk ? "Bulk" : "One by one"}
-                                defaultToggled={this.state.bulk}
-                                onToggle={(event, value) => { this.setState({ bulk: value }) }}
-                                labelPosition="right"
-                                disabled={this.state.running}
-                            />
-                        </div>
-
                         {this.state.running ? <LinearProgress mode="indeterminate" /> : ""}
                     </Paper>
                     <div style={{ marginLeft: '77%' }}>
