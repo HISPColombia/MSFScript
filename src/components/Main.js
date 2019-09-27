@@ -493,31 +493,31 @@ class Main extends Component {
         }
     }
     async generatingAnalytic(){
+                    //Start setting
+                this.setState({
+                    result: "\n Script para la agregación de indicadores \n MSF.2019 \n Versión:1.0",
+                    open: false,
+                    openvdata: false,
+                    startDate: "",
+                    rawIndicators: [],
+                    rawOrgUnits: [],
+                    dataImported: [],
+                    Summaryimported: 0,
+                    Summarynoimported: 0,
+                    SummaryUpdated:0,
+                    SummaryIgnored:0,
+                    Summaryerror: 0,
+                    dataValues: [],
+                    downloadValue: undefined,
+                    running: true,
+                    send:false,
+                    openSnackBar: false,
+                })
                 const DHISAppQuery = new DhisQuery(this.state.setting, this.props.d2)
                 var resp = await DHISAppQuery.generateAnalytic();       
                 this.getSumaryAnalytics(DHISAppQuery,resp.response.id)
     }
-    async _run(DHISAppQuery) {
-        //Start setting
-        this.setState({
-            result: "\n Script para la agregación de indicadores \n MSF.2019 \n Versión:0.1",
-            open: false,
-            openvdata: false,
-            startDate: "",
-            rawIndicators: [],
-            rawOrgUnits: [],
-            dataImported: [],
-            Summaryimported: 0,
-            Summarynoimported: 0,
-            SummaryUpdated:0,
-            SummaryIgnored:0,
-            Summaryerror: 0,
-            dataValues: [],
-            downloadValue: undefined,
-            running: true,
-            send:false,
-            openSnackBar: false,
-        })
+    async _run(DHISAppQuery) {       
 
        
         await this.getSetting(DHISAppQuery);
