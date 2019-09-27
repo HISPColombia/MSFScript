@@ -178,5 +178,15 @@ module.exports = class DhisQuery {
     let url = "/system/info" 
     return await this.getResourceSelected(url)
    }
+
+   async generateAnalytic(){
+       const data={skipResourceTables:false,skipAggregat:false,skipEvents:false,skipEnrollment:false}
+    let url = "resourceTables/analytics" 
+    return await this.setResourceSelected(url,data)
+   }
+   async getTaskAnalytics(taskUid){
+    let url = "system/tasks/ANALYTICS_TABLE/"+taskUid 
+    return await this.getResourceSelected(url)
+   }
    
 }

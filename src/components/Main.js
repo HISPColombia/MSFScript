@@ -482,7 +482,22 @@ class Main extends Component {
             });
         }
     }
-    async _run() {
+    async getSumaryAnalytics(DHISAppQuery,TaskUid){
+        var resp = await DHISAppQuery.getTaskAnalytics(TaskUid);
+        this.addResult("\n"+ resp[0].message)
+        if (resp[0].completed==true){
+            this._run(DHISAppQuery)
+        }
+        else{
+            setTimeout(()=>this.getSumaryAnalytics(DHISAppQuery,TaskUid),3000)
+        }
+    }
+    async generatingAnalytic(){
+                const DHISAppQuery = new DhisQuery(this.state.setting, this.props.d2)
+                var resp = await DHISAppQuery.generateAnalytic();       
+                this.getSumaryAnalytics(DHISAppQuery,resp.response.id)
+    }
+    async _run(DHISAppQuery) {
         //Start setting
         this.setState({
             result: "\n Script para la agregación de indicadores \n MSF.2019 \n Versión:0.1",
@@ -504,17 +519,15 @@ class Main extends Component {
             openSnackBar: false,
         })
 
-        const DHISAppQuery = new DhisQuery(this.state.setting, this.props.d2)
+       
         await this.getSetting(DHISAppQuery);
         await this.geTandShowLastUpdate(DHISAppQuery);
         
         ////Delete using SQL View
         if(this.state.setting.deletedatavalues==true){
             const respExecute= await DHISAppQuery.DeleteValueUsingSQlView(this.state.setting.url,"ol50zCevR3K","POST","execute");
-            const respData= await DHISAppQuery.DeleteValueUsingSQlView(this.state.setting.url,"ol50zCevR3K","GET","data");
-            
+            const respData= await DHISAppQuery.DeleteValueUsingSQlView(this.state.setting.url,"ol50zCevR3K","GET","data");    
             this.addResult("\n Data values deleted")
-            console.log(respExecute,respData)
         }
       
         this.setState({ dataImported: [] })
@@ -755,7 +768,7 @@ class Main extends Component {
                         <RaisedButton
                             label={"Aggregate Data"}
                             primary={true}
-                            onClick={() => this._run()}
+                            onClick={() => this.generatingAnalytic()}
                             keyboardFocused={true}
                             style={localStyle.btn}
                             disabled={this.state.running}
