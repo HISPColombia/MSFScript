@@ -254,7 +254,7 @@ class Main extends Component {
             setTimeout(()=>this.getSumaryBulkExport(DHISAppQuery,TaskUid),1000)
         }
     }
-    async finishExport(lastIndicatorGroup, DHISAppQuery) {
+    async finishExport(lastIndicatorGroup, DHISAppQuery,source) {
         if (lastIndicatorGroup == true) {
             if (this.state.setting.bulk == true && this.state.send==false) {
                 this.setState({ send: true })
@@ -267,7 +267,7 @@ class Main extends Component {
                 this.getSumaryBulkExport(DHISAppQuery,resp.response.id)
             }
             else{
-                this.setState({ running: false, openSnackBar: true })
+                setTimeout(()=>this.setState({ running: false, openSnackBar: true }),5000)
                 this.addResult("\n\n Export has finished ")
             }
 
@@ -299,22 +299,25 @@ class Main extends Component {
                 //DHISAppQuery.setDataValue(dataIndicator.de,pe,dataIndicator.co,ou,value)
                 //External Server
                 if (this.state.setting.bulk == false) {
-                    var resp = await DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url, dataIndicator.de, pe, dataIndicator.co, ou, value);
-                    if (resp.status == 201) {
-                        //this.addResult("\n--------------------------------------- \n")
-                        let dataImported = this.state.dataImported;
-                        dataIndicator["value"] = value;
-                        dataIndicator["period"] = pe;
-                        dataImported.push(dataIndicator)
-                        this.setState({ dataImported })
-                        this.setState({ Summaryimported: this.state.Summaryimported + 1 })
-                        kdv = kdv + 1
-                        this.saveDataValue(DHISAppQuery, dv, kdv, lastIndicatorGroup, cumulativeValue);
-                    }
-                    else {
-                        this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
-                        this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
-                    }
+                    //var resp = await DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url, dataIndicator.de, pe, dataIndicator.co, ou, value);
+                    DHISAppQuery.setDataValue_ExternalServer(this.state.setting.url, dataIndicator.de, pe, dataIndicator.co, ou, value).then(resp=>{
+                        if (resp.status == 201) {
+                            //this.addResult("\n--------------------------------------- \n")
+                            let dataImported = this.state.dataImported;
+                            dataIndicator["value"] = value;
+                            dataIndicator["period"] = pe;
+                            dataImported.push(dataIndicator)
+                            this.setState({ dataImported })
+                            this.setState({ Summaryimported: this.state.Summaryimported + 1 })
+                            kdv = kdv + 1
+                            this.saveDataValue(DHISAppQuery, dv, kdv, lastIndicatorGroup, cumulativeValue);
+                        }
+                        else {
+                            this.addResult("\n -->>> API ERROR:  DataValue does't exported  \n")
+                            this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
+                        }
+                    })                   
+                   
                 }
                 else {
 
@@ -344,7 +347,7 @@ class Main extends Component {
             }
         }
         else { 
-            this.finishExport(lastIndicatorGroup, DHISAppQuery);
+            this.finishExport(lastIndicatorGroup, DHISAppQuery,"SaveDataValue");
         }
 
     }
@@ -394,25 +397,25 @@ class Main extends Component {
                             this.addResult("\n From:\n\n Indicator(s): " + indicators + " \n Period(s): " + periods + "\n Organisation Unit: " + ous)
                             this.addResult("\n -->>> There is no values to export  \n")
                             this.setState({ Summarynoimported: this.state.Summarynoimported + 1 })
-                            this.finishExport(lastIndicatorGroup, DHISAppQuery);
+                            this.finishExport(lastIndicatorGroup, DHISAppQuery,"getDataValueProgramIndicators 1");
                         }
                         else {
                             this.saveDataValue(DHISAppQuery, dv.rows, 0, lastIndicatorGroup, { metadata: undefined, values: {}, value: 0 })
-                            this.finishExport(lastIndicatorGroup, DHISAppQuery);
+                            //this.finishExport(lastIndicatorGroup, DHISAppQuery);
                         }
                     }//empty rows
                     else {
                         this.addResult("\n From:\n\n Indicator(s): " + indicators + " \n Period(s): " + periods + "\n Organisation Unit: " + ous)
                         this.addResult("\n API ERROR   \n")
                         this.setState({ Summaryerror: this.state.Summaryerror + 1 })
-                        this.finishExport(lastIndicatorGroup, DHISAppQuery);
+                        //this.finishExport(lastIndicatorGroup, DHISAppQuery,"getDataValueProgramIndicators 2");
                     }
                 }//empty dv
                 else {
                     this.addResult("\n From:\n\n Indicator(s): " + indicators + " \n Period(s): " + periods + "\n Organisation Unit: " + ous)
                     this.addResult("\n API ERROR   \n")
                     this.setState({ Summaryerror: this.state.Summaryerror + 1 })
-                    this.finishExport(lastIndicatorGroup, DHISAppQuery);
+                    //this.finishExport(lastIndicatorGroup, DHISAppQuery,"getDataValueProgramIndicators 3");
                 }
             })
         }
@@ -421,7 +424,7 @@ class Main extends Component {
             this.addResult("\nError:.------ \n");
             this.addResult(err)
             this.addResult("\n ------------- \n");
-            this.finishExport(undefined, undefined);
+           // this.finishExport(undefined, undefined,"getDataValueProgramIndicators 4 error");
         }
 
     }
@@ -483,15 +486,17 @@ class Main extends Component {
         //
     }
     sendSetOfIndicators(DHISAppQuery, pr, periods, ous, kind) {
-        if (kind < pr.length) {
-            let lastIndicatorGroup = false
-            if (kind == pr.length - 1)
-                lastIndicatorGroup = true
-            this.addResult("\n Step #3. Query data value (from program indicators) : " + pr[kind]);
-            this.geTandSetAggregateIndicators(DHISAppQuery, pr[kind], periods, ous, lastIndicatorGroup).then(rep => {
+        if (kind < pr.length-1) {
+             this.addResult("\n Step #3. Query data value (from program indicators) : " + pr[kind]);
+            this.geTandSetAggregateIndicators(DHISAppQuery, pr[kind], periods, ous, false).then(rep => {
                 kind = kind + 1;
                 this.sendSetOfIndicators(DHISAppQuery, pr, periods, ous, kind)
             });
+        }
+        else{
+            this.geTandSetAggregateIndicators(DHISAppQuery, pr[kind], periods, ous, true).then(rep => {
+            });
+
         }
     }
     async getSumaryAnalytics(DHISAppQuery,TaskUid){
