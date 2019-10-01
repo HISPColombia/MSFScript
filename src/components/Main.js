@@ -545,7 +545,7 @@ class Main extends Component {
         this.setState({ dataImported: [] })
         /////
         var periods = await this.getWeeks(DHISAppQuery)
-        if (periods == "withoutRecords") {
+        if (periods == "withoutRecords" || periods.length<6) {
             this.addResult("\n   . There is no event record in this period")
             this.setState({running:false})
             return 0

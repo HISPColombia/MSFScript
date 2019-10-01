@@ -1,6 +1,6 @@
 {
   "name": "aggpi",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Aggregate Program Indicators",
   "main": "./src/app.js",
   "repository": "https://github.com/HISPColombia/SharingSettingVer2.git",
