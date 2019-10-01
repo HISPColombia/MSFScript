@@ -170,26 +170,34 @@ class Main extends Component {
             return { ouId: undefined }
         }
     }
-    async  getWeeks(DHISAppQuery) {
+    async  getWeeks(DHISAppQuery) { //minimumweek
         const records = await DHISAppQuery.getValueUpdated(this.state.startDate);
         var listPeriods = "";
         if (records.rows.length < 1)
             return "withoutRecords";
+        var rawMinimunWeek=this.state.setting.minimumweek.split("W")[1]*1
         records.rows.forEach(event => {
             //Date exit report
-            if (event[17] != "")
-                if (!listPeriods.includes(utility.ConvertToWeekDHIS(event[17].substring(0, 10))))
+            if (event[17] != ""){
+                var exitReport=utility.ConvertToWeekDHIS(event[17].substring(0, 10))
+                var rawWeekExit=exitReport.split("W")[1]*1
+
+                if (!listPeriods.includes(exitReport) && rawWeekExit>=rawMinimunWeek)
                     if (listPeriods == "")
-                        listPeriods = utility.ConvertToWeekDHIS(event[17].substring(0, 10))
+                        listPeriods = exitReport
                     else
-                        listPeriods = listPeriods + ";" + utility.ConvertToWeekDHIS(event[17].substring(0, 10))
+                        listPeriods = listPeriods + ";" + exitReport
+            }
             //Date admission date
-            if (event[7] != "")
-                if (!listPeriods.includes(utility.ConvertToWeekDHIS(event[7].substring(0, 10))))
+            if (event[7] != ""){
+                var AdmissionDate=utility.ConvertToWeekDHIS(event[7].substring(0, 10))
+                var rawWeekAdmission=AdmissionDate.split("W")[1]*1
+                if (!listPeriods.includes(AdmissionDate) && rawWeekAdmission>=rawMinimunWeek)
                     if (listPeriods == "")
-                        listPeriods = utility.ConvertToWeekDHIS(event[7].substring(0, 10))
+                        listPeriods = AdmissionDate
                     else
-                        listPeriods = listPeriods + ";" + utility.ConvertToWeekDHIS(event[7].substring(0, 10))
+                        listPeriods = listPeriods + ";" + AdmissionDate
+            }
 
         })
         return listPeriods;
@@ -652,7 +660,12 @@ class Main extends Component {
                 onChange={(event, index, value) => this.handleSetValueForm("indicatorgroup", value, event, index)}
                 style={localStyle.textSetting}
             />
-            <br />
+            <TextField
+                value={this.state.setting.minimumweek}
+                floatingLabelText={"minimum week to get value"}
+                onChange={(event, index, value) => this.handleSetValueForm("minimumweek", value, event, index)}
+                style={localStyle.textSetting}
+            /><br />
 
             <TextField
                 value={this.state.setting.url}
@@ -678,7 +691,7 @@ class Main extends Component {
                 floatingLabelText={d2.i18n.getTranslation("ST_MAX_RECORDS")}
                 onChange={(event, index, value) => this.handleSetValueForm("maxrecords", value, event, index)}
                 style={localStyle.textSetting}
-            /><br />
+            /><br />   
 
             <div style={{ width: 250, margin: 20, marginLeft: 10 }}>
                 <Toggle
