@@ -1,12 +1,10 @@
 module.exports = {
 	ConvertToWeekDHIS(date){
-		date= (date==undefined?new Date():new Date(date))
-		var i=0,f,sem=(new Date(date.getFullYear(), 0,1).getDay()>0)?1:0;
-		while( (f=new Date(date.getFullYear(), 0, ++i)) < date ){
-			if(!f.getDay()){
-				sem++;
-			}
-		}
-		return date.getFullYear()+"W"+sem;
+		var d = new Date(date);  //Creamos un nuevo Date con la fecha de "this".
+    d.setHours(0, 0, 0, 0);   //Nos aseguramos de limpiar la hora.
+    d.setDate(d.getDate() + 4 - (d.getDay() || 7)); // Recorremos los días para asegurarnos de estar "dentro de la semana"
+    //Finalmente, calculamos redondeando y ajustando por la naturaleza de los números en JS:
+    return d.getFullYear()+"W"+Math.ceil((((d - new Date(d.getFullYear(), 0, 1)) / 8.64e7) + 1) / 7);
+
 	}
 }

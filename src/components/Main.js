@@ -794,13 +794,39 @@ class Main extends Component {
 
         return (
             <div style={localStyle.Main}>
-                <Snackbar
-                    open={this.state.openSnackBar}
-                    message="Export has finished"
-                    autoHideDuration={4000}
-                    contentStyle={{ fontSize: 'large', fontWeight: 'bold' }}
-
-                />
+                <Dialog
+                title="Export has finished"
+                actions={<FlatButton
+                    label="Ok"
+                    primary={true}
+                    onClick={()=>this.setState({openSnackBar:false})}
+                  />}
+                modal={true}
+                open={this.state.openSnackBar}
+                >
+                    <div style={localStyle.wrapper}>
+                    <Chip style={localStyle.chip}>
+                        <Avatar size={32}>{this.state.Summaryimported}</Avatar>
+                        Imported
+                    </Chip>
+                    <Chip style={localStyle.chip}>
+                        <Avatar size={32}>{this.state.SummaryUpdated}</Avatar>
+                        Updated
+                    </Chip>
+                    <Chip style={localStyle.chip}>
+                        <Avatar size={32}>{this.state.SummaryIgnored}</Avatar>
+                        Ignored
+                    </Chip>
+                    <Chip style={localStyle.chip}>
+                        <Avatar size={32}>{this.state.Summarynoimported}</Avatar>
+                        No Values
+                    </Chip>
+                    <Chip style={localStyle.chip}>
+                        <Avatar size={32}>{this.state.Summaryerror}</Avatar>
+                        Errors
+                    </Chip>
+                </div>
+                </Dialog>
                 <div style={localStyle.setButton}>
 
                     <Paper style={{ marginTop: 10, width: 250 }}>
