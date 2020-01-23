@@ -1,0 +1,38 @@
+{
+    "programIndicators": [ 
+        {
+            "id": "FmYwAlyJXC9",
+            "name": "IPD-Hospital-Morbidity-Fever of unknown origin(>= 15 y)",
+            "shortName": "IPD-Hospital-Morbidity-Fevenown origin(>= 15 y)FmY",
+            "aggregationType": "COUNT",
+            "displayInForm": false,
+            "aggregateExportCategoryOptionCombo": "oJWEM6Vz75L.MskzQDHiMJx",
+            "displayShortName": "oJWEM6Vz75L.MskzQDHiMJx",
+            "expression": "V{event_count}",
+            "dimensionItem": "FmYwAlyJXC9",
+            "filter": "d2:yearsBetween(#{uwN7IFkhD9t.YWijQTiCuVj}, V{event_date}) >= 15&&#{uwN7IFkhD9t.IaSwhdfQbTh} == ´IPD_OS_005_23´",
+            "analyticsType": "EVENT",
+            "dimensionItemType": "PROGRAM_INDICATOR",
+            "program": {
+                "id": "GNsDMDliWNX"
+            },
+            "analyticsPeriodBoundaries": [
+                {
+                    "id": "JQoLBqRcO05",
+                    "analyticsPeriodBoundaryType": "AFTER_START_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "EVENT_DATE"
+                },
+                {
+                    "id": "NIFGf1CRpK8",
+                    "analyticsPeriodBoundaryType": "BEFORE_END_OF_REPORTING_PERIOD",
+                    "boundaryTarget": "EVENT_DATE"
+                }
+            ]
+        }
+        {
+        //....
+        //.....
+        }
+    ]
+}
+        

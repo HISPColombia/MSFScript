@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 //import principal module, utilities and setting
-import DhisQuery from '../modules/DhisQuery'
-import utility from "../modules/Utilities"
+import DhisQuery from '../../modules/DhisQuery'
+import utility from "../../modules/Utilities"
 //materials
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';

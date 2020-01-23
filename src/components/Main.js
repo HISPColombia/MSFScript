@@ -175,12 +175,12 @@ class Main extends Component {
         var listPeriods = "";
         if (records.rows.length < 1)
             return "withoutRecords";
-        var rawMinimunWeek=this.state.setting.minimumweek.split("W")[1]*1
+        var rawMinimunWeek=(this.state.setting.minimumweek.split("W")[0] +this.state.setting.minimumweek.split("W")[1])*1
         records.rows.forEach(event => {
             //Date exit report
             if (event[17] != ""){
                 var exitReport=utility.ConvertToWeekDHIS(event[17].substring(0, 10))
-                var rawWeekExit=exitReport.split("W")[1]*1
+                var rawWeekExit=(exitReport.split("W")[0]+exitReport.split("W")[1])*1
 
                 if (!listPeriods.includes(exitReport) && rawWeekExit>=rawMinimunWeek)
                     if (listPeriods == "")
@@ -191,7 +191,7 @@ class Main extends Component {
             //Date admission date
             if (event[7] != ""){
                 var AdmissionDate=utility.ConvertToWeekDHIS(event[7].substring(0, 10))
-                var rawWeekAdmission=AdmissionDate.split("W")[1]*1
+                var rawWeekAdmission=(AdmissionDate.split("W")[0]+AdmissionDate.split("W")[1])*1
                 if (!listPeriods.includes(AdmissionDate) && rawWeekAdmission>=rawMinimunWeek)
                     if (listPeriods == "")
                         listPeriods = AdmissionDate
