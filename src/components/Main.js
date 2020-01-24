@@ -175,31 +175,40 @@ class Main extends Component {
         var listPeriods = "";
         if (records.rows.length < 1)
             return "withoutRecords";
-        var rawMinimunWeek=(this.state.setting.minimumweek.split("W")[0] +this.state.setting.minimumweek.split("W")[1])*1
-        records.rows.forEach(event => {
-            //Date exit report
-            if (event[17] != ""){
-                var exitReport=utility.ConvertToWeekDHIS(event[17].substring(0, 10))
-                var rawWeekExit=(exitReport.split("W")[0]+exitReport.split("W")[1])*1
+            let p1rmw=this.state.setting.minimumweek.split("W")[0]
+            let p2rmw="0".concat(this.state.setting.minimumweek.split("W")[1])
+            p2rmw=p2rmw.substring(p2rmw.length-2,p2rmw.length)
+            var rawMinimunWeek=p1rmw.concat(p2rmw)*1
+            records.rows.forEach(event => {
+                //Date exit report
+                if (event[17] != ""){
+                    let exitReport=utility.ConvertToWeekDHIS(event[17].substring(0, 10))
+                    let p1er=exitReport.split("W")[0]
+                    let p2er="0".concat(exitReport.split("W")[1])
+                    p2er=p2er.substring(p2er.length-2,p2er.length)
+                    let rawWeekExit=p1er.concat(p2er)*1
 
-                if (!listPeriods.includes(exitReport) && rawWeekExit>=rawMinimunWeek)
-                    if (listPeriods == "")
-                        listPeriods = exitReport
-                    else
-                        listPeriods = listPeriods + ";" + exitReport
-            }
-            //Date admission date
-            if (event[7] != ""){
-                var AdmissionDate=utility.ConvertToWeekDHIS(event[7].substring(0, 10))
-                var rawWeekAdmission=(AdmissionDate.split("W")[0]+AdmissionDate.split("W")[1])*1
-                if (!listPeriods.includes(AdmissionDate) && rawWeekAdmission>=rawMinimunWeek)
-                    if (listPeriods == "")
-                        listPeriods = AdmissionDate
-                    else
-                        listPeriods = listPeriods + ";" + AdmissionDate
-            }
+                    if (!listPeriods.includes(exitReport) && rawWeekExit>=rawMinimunWeek)
+                        if (listPeriods == "")
+                            listPeriods = exitReport
+                        else
+                            listPeriods = listPeriods + ";" + exitReport
+                }
+                //Date admission date
+                if (event[7] != ""){
+                    var AdmissionDate=utility.ConvertToWeekDHIS(event[7].substring(0, 10))
+                    let p1ad=AdmissionDate.split("W")[0]
+                    let p2ad="0".concat(AdmissionDate.split("W")[1])
+                    p2ad=p2ad.substring(p2ad.length-2,p2ad.length)
+                    let rawWeekAdmission=p1ad.concat(p2ad)*1
+                    if (!listPeriods.includes(AdmissionDate) && rawWeekAdmission>=rawMinimunWeek)
+                        if (listPeriods == "")
+                            listPeriods = AdmissionDate
+                        else
+                            listPeriods = listPeriods + ";" + AdmissionDate
+                }
 
-        })
+            })
         return listPeriods;
     }
     async  getOrganisationUnits(DHISAppQuery) {
